@@ -1,0 +1,22 @@
+---=== MY SERVER ===---
+Phone #: 282-555-0194
+Username: hax
+Password: hunter2
+
+* Modem implements a (very small) subset of 'Basic' commands as
+  described in the ITU-T V.250 spec (Table I.2)
+
+---=== THEIR SERVER ===---
+
+Ground station IP: 93.184.216.34
+Ground station Phone #: 490-XXX-XXXX ...?
+Username: ?
+Password: ?
+
+* They use the same model of modem as mine... could use +++ATH0
+  ping of death
+* It'll have an interactive login similar to my server
+* Their official password policy: minimum requirements of
+  FIPS112 (probably just numeric)
+    * TL;DR - section 4.1.1 of 'NBS Special Publication 500-137'
+
