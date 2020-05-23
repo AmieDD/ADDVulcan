@@ -21,6 +21,8 @@ HackaSat Challenges
 
 ### Ground Segment
 
+- Track The Sat
+
 ### Communication Systems
 
 - Phasors to Stun
