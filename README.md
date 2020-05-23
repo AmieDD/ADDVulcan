@@ -9,6 +9,9 @@ HackaSat Challenges
 ### Astronomy, Astrophysics, Astrometry, Astrodynamics, AAAA
 
 - I Like to Watch Hot stuff! 
+- Attitude Adjustment 
+- Seeing Stars 
+- Digital Filters, Meh Hot stuff! 
 
 ### Satellite Bus
 
