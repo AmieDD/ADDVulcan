@@ -17,6 +17,8 @@ HackaSat Challenges
 
 ### Satellite Bus
 
+- Magic Bus
+
 ### Ground Segment
 
 ### Communication Systems
