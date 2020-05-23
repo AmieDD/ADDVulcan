@@ -13,6 +13,7 @@ HackaSat Challenges
 - Attitude Adjustment 
 - Seeing Stars 
 - Digital Filters, Meh
+- SpaceBook
 
 ### Satellite Bus
 
@@ -23,5 +24,6 @@ HackaSat Challenges
 ### Payload Modules
 
 - That's not on my calendar
+- SpaceDB
 
 ## Space and Things
