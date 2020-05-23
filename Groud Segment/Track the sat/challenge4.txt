@@ -1,0 +1,8 @@
+Track-a-sat control system
+Latitude: -20.0013
+Longitude: 148.2087
+Satellite: GLOBALSTAR M089
+Start time GMT: 1586944476.246937
+720 observations, one every 1 second
+Waiting for your solution followed by a blank line...
+

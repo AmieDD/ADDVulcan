@@ -1,0 +1,8 @@
+Track-a-sat control system
+Latitude: 52.5341
+Longitude: 85.18
+Satellite: PERUSAT 1
+Start time GMT: 1586789933.820023
+720 observations, one every 1 second
+Waiting for your solution followed by a blank line...
+
