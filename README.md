@@ -22,6 +22,7 @@
 ### Ground Segment
 
 - Track The Sat
+- Can you hear me now?
 
 ### Communication Systems
 
