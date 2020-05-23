@@ -11,7 +11,7 @@ HackaSat Challenges
 - I Like to Watch Hot stuff! 
 - Attitude Adjustment 
 - Seeing Stars 
-- Digital Filters, Meh Hot stuff! 
+- Digital Filters, Meh
 
 ### Satellite Bus
 
