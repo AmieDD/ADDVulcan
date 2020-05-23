@@ -26,6 +26,7 @@ HackaSat Challenges
 ### Communication Systems
 
 - Phasors to Stun
+- 56K Flex Magic
 
 ### Payload Modules
 
