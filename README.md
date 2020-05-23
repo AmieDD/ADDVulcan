@@ -23,9 +23,12 @@ HackaSat Challenges
 
 ### Communication Systems
 
+- Phasors to Stun
+
 ### Payload Modules
 
 - That's not on my calendar
 - SpaceDB
+- Space Race
 
 ## Space and Things
