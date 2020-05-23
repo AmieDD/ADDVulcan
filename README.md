@@ -6,6 +6,7 @@ HackaSat Challenges
 - Lt Commander Data 
 - Lt Starbuck 
 - Capt Solo 
+
 ### Astronomy, Astrophysics, Astrometry, Astrodynamics, AAAA
 
 - I Like to Watch Hot stuff! 
@@ -20,5 +21,7 @@ HackaSat Challenges
 ### Communication Systems
 
 ### Payload Modules
+
+- That's not on my calendar
 
 ## Space and Things
