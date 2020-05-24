@@ -1,6 +1,6 @@
 # ADDVulcan
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-3-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-4-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 [**HackaSat Challenges**](https://www.hackasat.com/)
 
@@ -55,6 +55,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/will-caruana"><img src="https://avatars2.githubusercontent.com/u/20567604?v=4" width="100px;" alt=""/><br /><sub><b>will-caruana</b></sub></a><br /><a href="#eventOrganizing-will-caruana" title="Event Organizing">📋</a></td>
     <td align="center"><a href="https://homes.cs.washington.edu/~supersat/"><img src="https://avatars3.githubusercontent.com/u/1396229?v=4" width="100px;" alt=""/><br /><sub><b>Karl Koscher</b></sub></a><br /><a href="https://github.com/AmieDD/ADDVulcan/commits?author=supersat" title="Code">💻</a></td>
     <td align="center"><a href="http://www.amiedd.com"><img src="https://avatars3.githubusercontent.com/u/7669428?v=4" width="100px;" alt=""/><br /><sub><b>Amie DD</b></sub></a><br /><a href="https://github.com/AmieDD/ADDVulcan/commits?author=AmieDD" title="Code">💻</a></td>
+    <td align="center"><a href="http://1bitsquared.com"><img src="https://avatars3.githubusercontent.com/u/17334?v=4" width="100px;" alt=""/><br /><sub><b>Piotr Esden-Tempski</b></sub></a><br /><a href="https://github.com/AmieDD/ADDVulcan/commits?author=esden" title="Code">💻</a></td>
   </tr>
 </table>
 
