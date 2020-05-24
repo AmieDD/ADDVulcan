@@ -1,6 +1,6 @@
 # ADDVulcan
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-8-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-9-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 [**HackaSat Challenges**](https://www.hackasat.com/)
 
@@ -74,6 +74,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
   </tr>
   <tr>
     <td align="center"><a href="https://github.com/zjpahle"><img src="https://avatars2.githubusercontent.com/u/5356102?v=4" width="100px;" alt=""/><br /><sub><b>zjpahle</b></sub></a><br /><a href="https://github.com/AmieDD/ADDVulcan/commits?author=zjpahle" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/shannonfritz"><img src="https://avatars3.githubusercontent.com/u/10999809?v=4" width="100px;" alt=""/><br /><sub><b>Shannon Fritz</b></sub></a><br /><a href="https://github.com/AmieDD/ADDVulcan/commits?author=shannonfritz" title="Code">💻</a></td>
   </tr>
 </table>
 
