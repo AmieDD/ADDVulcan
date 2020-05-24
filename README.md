@@ -36,6 +36,7 @@
 - Phasors to Stun
 - 56K Flex Magic
 - Phasors to Kill
+- Ground Control to Major Tom
 
 ### Payload Modules
 
