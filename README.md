@@ -43,6 +43,9 @@
 
 ## Space and Things
 
+- Where's the Sat?
+- Don't Tweet That Picture
+
 ## Contributors ✨
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
