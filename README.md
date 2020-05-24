@@ -39,6 +39,7 @@
 - 56K Flex Magic
 - Phasors to Kill
 - Ground Control to Major Tom
+- Something's Out There
 
 ### Payload Modules
 
@@ -54,6 +55,7 @@
 - Don't Tweet That Picture
 - Good Plan? Great Plan?
 - 1201 Alarm
+- Rogue Base Station
 
 ## Contributors ✨
 
