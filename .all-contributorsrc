@@ -85,6 +85,15 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "miek",
+      "name": "Mike Walters",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/578095?v=4",
+      "profile": "https://assortedhackery.com",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
