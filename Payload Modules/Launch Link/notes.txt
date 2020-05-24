@@ -1,0 +1,11 @@
+Our team managed to download off an open FTP server from LaunchDotCom's website and found some interesting documents about their upcoming Satellte Internet service. We've figured out how to communicate over the RF link but we need your help to figure out how to exploit the baseband processor on the satellite.
+
+We've managed to download the firmware for the baseband processor of the payload module from the open FTP server.
+
+It appears they graciously left an emulator on their public FTP server for debugging their platform, we have provided that as well. Our team has determined that the target system uses 2MB of RAM and to run the emulator use the following command line:
+
+vmips -o memsize=2097152 firmware.bin
+
+Our team would like to access sensitive data located 0xa2008000 on the running system.
+
+Good Luck!
