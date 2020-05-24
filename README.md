@@ -1,6 +1,6 @@
 # ADDVulcan
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-7-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-8-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 [**HackaSat Challenges**](https://www.hackasat.com/)
 
@@ -69,6 +69,9 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="http://alvarop.com"><img src="https://avatars2.githubusercontent.com/u/744129?v=4" width="100px;" alt=""/><br /><sub><b>Alvaro</b></sub></a><br /><a href="https://github.com/AmieDD/ADDVulcan/commits?author=alvarop" title="Code">💻</a></td>
     <td align="center"><a href="https://twitter.com/shipcod3"><img src="https://avatars0.githubusercontent.com/u/3483615?v=4" width="100px;" alt=""/><br /><sub><b>Jay Turla</b></sub></a><br /><a href="https://github.com/AmieDD/ADDVulcan/commits?author=shipcod3" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/schneider42"><img src="https://avatars0.githubusercontent.com/u/452051?v=4" width="100px;" alt=""/><br /><sub><b>schneider42</b></sub></a><br /><a href="https://github.com/AmieDD/ADDVulcan/commits?author=schneider42" title="Code">💻</a></td>
+  </tr>
+  <tr>
+    <td align="center"><a href="https://github.com/zjpahle"><img src="https://avatars2.githubusercontent.com/u/5356102?v=4" width="100px;" alt=""/><br /><sub><b>zjpahle</b></sub></a><br /><a href="https://github.com/AmieDD/ADDVulcan/commits?author=zjpahle" title="Code">💻</a></td>
   </tr>
 </table>
 
