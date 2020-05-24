@@ -13,6 +13,15 @@
       "contributions": [
         "eventOrganizing"
       ]
+    },
+    {
+      "login": "supersat",
+      "name": "Karl Koscher",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/1396229?v=4",
+      "profile": "https://homes.cs.washington.edu/~supersat/",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
