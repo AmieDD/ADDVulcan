@@ -31,6 +31,15 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "esden",
+      "name": "Piotr Esden-Tempski",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/17334?v=4",
+      "profile": "http://1bitsquared.com",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
