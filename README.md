@@ -22,6 +22,8 @@
 ### Satellite Bus
 
 - Magic Bus
+- Sun? On my Sat?
+- Sun? On my Sat? Again?
 
 ### Ground Segment
 
