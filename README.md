@@ -17,6 +17,7 @@
 - Seeing Stars 
 - Digital Filters, Meh
 - SpaceBook
+- My 0x20
 
 ### Satellite Bus
 
@@ -28,11 +29,13 @@
 - Can you hear me now?
 - Talk to me Goose
 - I see what you did there
+- Vax the Sat
 
 ### Communication Systems
 
 - Phasors to Stun
 - 56K Flex Magic
+- Phasors to Kill
 
 ### Payload Modules
 
@@ -40,6 +43,7 @@
 - SpaceDB
 - Space Race
 - Leaky Crypto
+- LaunchLink
 
 ## Space and Things
 
