@@ -1,0 +1,24 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "will-caruana",
+      "name": "will-caruana",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/20567604?v=4",
+      "profile": "https://github.com/will-caruana",
+      "contributions": [
+        "eventOrganizing"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "ADDVulcan",
+  "projectOwner": "AmieDD",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "skipCi": true
+}
