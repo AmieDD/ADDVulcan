@@ -40,6 +40,15 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "alvarop",
+      "name": "Alvaro",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/744129?v=4",
+      "profile": "http://alvarop.com",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
