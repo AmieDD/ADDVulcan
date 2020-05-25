@@ -1,6 +1,6 @@
 # ADDVulcan
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-14-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-15-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 [**HackaSat Challenges**](https://www.hackasat.com/)
 
@@ -84,6 +84,9 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://twitter.com/ninjabunny9000"><img src="https://avatars0.githubusercontent.com/u/7820414?v=4" width="100px;" alt=""/><br /><sub><b>Bun</b></sub></a><br /><a href="https://github.com/AmieDD/ADDVulcan/commits?author=NinjaBunny9000" title="Code">💻</a></td>
     <td align="center"><a href="https://ethicalhackers.club"><img src="https://avatars0.githubusercontent.com/u/44928938?v=4" width="100px;" alt=""/><br /><sub><b>Ameer Pornillos</b></sub></a><br /><a href="https://github.com/AmieDD/ADDVulcan/commits?author=ameerpornillos" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/cameronbosnic"><img src="https://avatars1.githubusercontent.com/u/23346124?v=4" width="100px;" alt=""/><br /><sub><b>cameronbosnic</b></sub></a><br /><a href="https://github.com/AmieDD/ADDVulcan/commits?author=cameronbosnic" title="Code">💻</a></td>
+  </tr>
+  <tr>
+    <td align="center"><a href="https://github.com/5hu5ky"><img src="https://avatars2.githubusercontent.com/u/12157362?v=4" width="100px;" alt=""/><br /><sub><b>5hu5ky</b></sub></a><br /><a href="https://github.com/AmieDD/ADDVulcan/commits?author=5hu5ky" title="Code">💻</a></td>
   </tr>
 </table>
 
