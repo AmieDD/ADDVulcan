@@ -4,7 +4,7 @@ Included is the simulation code for the attitude control loop for a satellite in
 
 Review the simulation I have running to see if a startracker can still mess with my filter. Oh, and I'll be giving you the attitude of the physical system as a quaternion, it would be too much work to figure out where a star tracker is oriented from star coordinates, right?
 
-Ticket
+### Ticket
 
 Present this ticket when connecting to the challenge:
 ticket{xray47741golf:GNMa5OxcfnF-P8Gdy05txH7MU1hgS4Ziq76v9izFmvvSoVj5Wxkg5N91VzbvZPdXxQ}
@@ -12,40 +12,21 @@ Don't share your ticket with other teams.
 Connecting
 
 Connect to the challenge on filter.satellitesabove.me:5014 . Using netcat, you might run nc filter.satellitesabove.me 5014
-Files
+
+### Files
 
 You'll need these files to solve the challenge.
 
     https://static.2020.hackasat.com/fd578f9dee5b5ac45b0717a1c7739606bd27013b/src.tar.gz
 
-Solving
+### Solving
 
 Your team's flag for this challenge will look something like flag{xray47741golf:___a bunch of unguessable stuff___} .
 Flag:
 
 
-# Digital Filters, Meh
-
-Included is the simulation code for the attitude control loop for a satellite in orbit. A code reviewer said I made a pretty big mistake that could allow a star tracker to misbehave. Although my code is flawless, I put in some checks to make sure the star tracker can't misbehave anyways.
-
-Review the simulation I have running to see if a startracker can still mess with my filter. Oh, and I'll be giving you the attitude of the physical system as a quaternion, it would be too much work to figure out where a star tracker is oriented from star coordinates, right?
-
-## Ticket
-Present this ticket when connecting to the challenge:
-ticket{xray47741golf:GNMa5OxcfnF-P8Gdy05txH7MU1hgS4Ziq76v9izFmvvSoVj5Wxkg5N91VzbvZPdXxQ}
-Don't share your ticket with other teams.
-
-## Connecting
-Connect to the challenge on filter.satellitesabove.me:5014 . Using netcat, you might run nc filter.satellitesabove.me 5014
-
-## Files
-You'll need these files to solve the challenge.
-
-https://static.2020.hackasat.com/fd578f9dee5b5ac45b0717a1c7739606bd27013b/src.tar.gz
-Solving
-Your team's flag for this challenge will look something like flag{xray47741golf:___a bunch of unguessable stuff___} .
-
-Google Colab Notes: https://colab.research.google.com/drive/1vIBky-zlb0A6oIbq8KPLiUirzdiCcU0w#scrollTo=vrxTLVFDwqmy
+**Google Colab Notes:**
+https://colab.research.google.com/drive/1vIBky-zlb0A6oIbq8KPLiUirzdiCcU0w#scrollTo=vrxTLVFDwqmy
 
 ![55325bc462b458c5664e111ad60f5aca.png](:/88ba7d92bd7340dc8489073b0c4a4f99)
 
@@ -62,7 +43,7 @@ Function File: [axis, angle] = q2rot (q)
 Function File: [axis, angle, qn] = q2rot (q)
 Extract vector/angle form of a unit quaternion q.
 
-Inputs
+**Inputs**
 
 **q**
 Unit quaternion describing the rotation. Quaternion q can be a scalar or an array. In the latter case, q is reshaped to a row vector and the return values axis and angle are concatenated horizontally, accordingly.
