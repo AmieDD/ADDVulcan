@@ -21,43 +21,43 @@
 
 ### Satellite Bus
 
-- Magic Bus
-- Sun? On my Sat?
-- Sun? On my Sat? Again?
-- Monkey in the Middle
-- Bytes Away!
+- [Magic Bus](https://github.com/AmieDD/ADDVulcan/tree/master/Satellite%20Bus/Magic%20Bus)
+- [Sun? On my Sat?](https://github.com/AmieDD/ADDVulcan/tree/master/Satellite%20Bus/Sun%3F%20On%20my%20Sat%3F)
+- [Sun? On my Sat? Again?](https://github.com/AmieDD/ADDVulcan/tree/master/Satellite%20Bus/Sun%3F%20On%20my%20Sat%3F%20Again%3F)
+- [Monkey in the Middle](https://github.com/AmieDD/ADDVulcan/tree/master/Satellite%20Bus/Monkey%20in%20the%20Middle)
+- [Bytes Away!](https://github.com/AmieDD/ADDVulcan/tree/master/Satellite%20Bus/Bytes%20Away!)
 
 ### Ground Segment
 
-- Track The Sat
-- Can you hear me now?
-- Talk to me Goose
-- I see what you did there
-- Vax the Sat
+- [Track The Sat](https://github.com/AmieDD/ADDVulcan/tree/master/Groud%20Segment/Track%20the%20sat)
+- [Can you hear me now?](https://github.com/AmieDD/ADDVulcan/tree/master/Groud%20Segment/Can%20you%20hear%20me%20now)
+- [Talk to me Goose](https://github.com/AmieDD/ADDVulcan/tree/master/Groud%20Segment/Talk%20to%20me%20Goose)
+- [I see what you did there](https://github.com/AmieDD/ADDVulcan/tree/master/Groud%20Segment/I%20see%20what%20you%20did%20there)
+- [Vax the Sat](https://github.com/AmieDD/ADDVulcan/tree/master/Groud%20Segment/Vax%20the%20Sat)
 
 ### Communication Systems
 
-- Phasors to Stun
-- 56K Flex Magic
-- Phasors to Kill
-- Ground Control to Major Tom
-- Something's Out There
+- [Phasors to Stun](https://github.com/AmieDD/ADDVulcan/tree/master/Communication%20Systems/Phasors%20to%20Stun)
+- [56K Flex Magic](https://github.com/AmieDD/ADDVulcan/tree/master/Communication%20Systems/56K%20Flex%20Magic)
+- [Phasors to Kill](https://github.com/AmieDD/ADDVulcan/tree/master/Communication%20Systems/Phasors%20to%20Kill)
+- [Ground Control to Major Tom](https://github.com/AmieDD/ADDVulcan/tree/master/Communication%20Systems/Ground%20Control%20to%20Major%20Tom)
+- [Something's Out There](https://github.com/AmieDD/ADDVulcan/tree/master/Communication%20Systems/Something's%20Out%20There)
 
 ### Payload Modules
 
-- That's not on my calendar
-- SpaceDB
-- Space Race
-- Leaky Crypto
-- LaunchLink
+- [That's not on my calendar]()
+- [SpaceDB](https://github.com/AmieDD/ADDVulcan/tree/master/Payload%20Modules/SpaceDB)
+- [Space Race](https://github.com/AmieDD/ADDVulcan/tree/master/Payload%20Modules/Space%20Race)
+- [Leaky Crypto](https://github.com/AmieDD/ADDVulcan/tree/master/Payload%20Modules/Leaky%20Crypto)
+- [LaunchLink](https://github.com/AmieDD/ADDVulcan/tree/master/Payload%20Modules/Launch%20Link)
 
 ## Space and Things
 
-- Where's the Sat?
-- Don't Tweet That Picture
-- Good Plan? Great Plan?
-- 1201 Alarm
-- Rogue Base Station
+- [Where's the Sat?]()
+- [Don't Tweet That Picture](https://github.com/AmieDD/ADDVulcan/tree/master/Space%20and%20Things/Dont%20Tweet%20That%20Picture)
+- [Good Plan? Great Plan?](https://github.com/AmieDD/ADDVulcan/tree/master/Space%20and%20Things/Good%20Plan%3F%20Great%20Plan%3F)
+- [1201 Alarm](https://github.com/AmieDD/ADDVulcan/tree/master/Space%20and%20Things/1201%20Alarm)
+- [Rogue Base Station](https://github.com/AmieDD/ADDVulcan/tree/master/Space%20and%20Things/Rogue%20Base%20Station)
 
 ## Contributors ✨
 
