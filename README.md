@@ -6,7 +6,7 @@
 
 ### Space Cadets
 
-- Lt Commander Data 
+- [Lt Commander Data](https://github.com/AmieDD/ADDVulcan/tree/master/Space%20Cadets/LT%20Commander%20Data)
 - Lt Starbuck 
 - Capt Solo 
 
