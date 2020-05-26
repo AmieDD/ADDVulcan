@@ -7,8 +7,8 @@
 ### Space Cadets
 
 - [Lt Commander Data](https://github.com/AmieDD/ADDVulcan/tree/master/Space%20Cadets/LT%20Commander%20Data)
-- Lt Starbuck 
-- Capt Solo 
+- [Lt Starbuck](https://github.com/AmieDD/ADDVulcan/tree/master/Space%20Cadets/LT%20Starbuck)
+- [Capt Solo](https://github.com/AmieDD/ADDVulcan/tree/master/Space%20Cadets/Capt%20Solo) 
 
 ### Astronomy, Astrophysics, Astrometry, Astrodynamics, AAAA
 
