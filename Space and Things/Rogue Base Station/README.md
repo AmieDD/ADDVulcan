@@ -18,4 +18,4 @@ Satellites (#,lat,lon):
 Where am I? Lat, Lon in +/-degr
 ```
 
-![55d594f77f04494f006e6864cb097f6c.png](:/568610533b0541b5a593c1646ae70b0a)
+![](https://github.com/AmieDD/ADDVulcan/blob/master/Space%20and%20Things/Rogue%20Base%20Station/Images/roguebase.png)
