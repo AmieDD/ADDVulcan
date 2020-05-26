@@ -1,26 +1,29 @@
-
-I Like to Watch
-Astronomy, Astrophysics, Astrometry, Astrodynamics, AAAA, 138 points
-
-Back to Scoreboard
+# I Like to Watch
 
 Fire up your Google Earth Pro and brush up on your KML tutorials, we're going to make it look at things!
 
-Ticket
+![](https://media.giphy.com/media/7jeOTMdLRDJ3q/giphy.gif)
+
+### Ticket
 
 Present this ticket when connecting to the challenge:
+```
 ticket{whiskey61339xray:GDj2oodgEHG95KLVVJRhLBsv-eLQroIa95vthAasorOqN8FgUkoOQKWDrqQCaEH1Zw}
+```
+
 Don't share your ticket with other teams.
-Connecting
+
+### Connecting
 
 Connect to the challenge on watch.satellitesabove.me:5011 . Using netcat, you might run nc watch.satellitesabove.me 5011
-Files
+
+### Files
 
 You'll need these files to solve the challenge.
 
-    https://static.2020.hackasat.com/a5c679be9509cfdf096add229e84422124804d3a/example.zipf
+[Download Files](https://github.com/AmieDD/ADDVulcan/blob/master/Astronomy%20Astrophysics%20Astrometry%20Astrodynamics%20AAAA/I%20Like%20to%20Watch/convertcsv.csv)
 
-Solving
+### Solving
 
 Your team's flag for this challenge will look something like flag{whiskey61339xray:___a bunch of unguessable stuff___} .
 Flag:
