@@ -85,7 +85,7 @@ We try dialing the number through the serial port, and get a `BUSY` signal. The 
 
 ![Ping of Death and Connection to Second Server](images/ping-of-death-login.png)
 
-Now we need credentials for the second system. Perhaps they can be found in the modem [recording](files/recording.wav)? We look at the spectrograph of the recording, and see strong evidence we're dealing with a 300 baud modem signal, either [Bell 103](https://en.wikipedia.org/wiki/Bell_103_modem) or [ITU-T Recommendation V.21](https://www.itu.int/rec/T-REC-V.21/en).
+Now we need credentials for the second system. Perhaps they can be found in the modem [recording](files/recording.wav)? We [listen](https://www.youtube.com/watch?v=abapFJN6glo) and look at the spectrograph of the recording, and see strong evidence we're dealing with a [300 baud modem signal](https://www.youtube.com/watch?v=1Pmxkt9mYgM), either [Bell 103](https://en.wikipedia.org/wiki/Bell_103_modem) or [ITU-T Recommendation V.21](https://www.itu.int/rec/T-REC-V.21/en).
 
 ![Spectrogram of recording.wav with some filtering applied](images/recording-spectrogram.png)
 
@@ -131,6 +131,8 @@ In the demodulated modem conversation, we notice something resembling [HDLC](htt
 
 Operating under the PPP assumption, we [transform](python/hdlc.py) the [modem conversation bytes](conversation.txt) into a hex dump which can be imported into [Wireshark](https://www.wireshark.org/). A [.pcapng file](modem_0.pcapng) is saved and shared with the team.
 
+![Wireshark decoding of PPP conversation](images/wireshark-pcap.png)
+
 Wireshark fails to decode packets in one direction, which is interesting... We're also concerned about how some of the HDLC messages don't use 0x7e for some of the flags, but 0x7c. Perhaps the decoded modem bits are sketchy?
 
 We explore the PPP avenue. Wireshark tells us we're looking at a combination of PPP, [LCP](https://en.wikipedia.org/wiki/Link_Control_Protocol), and a flavor of [CHAP](https://en.wikipedia.org/wiki/Challenge-Handshake_Authentication_Protocol) -- [MS-CHAP](https://en.wikipedia.org/wiki/MS-CHAP)?. We pull out the challenge and response portions of the message.
@@ -161,7 +163,7 @@ for i in range(10000):
   tryPin('%04d' % i)
 ```
 
-Unfortunately, it doesn't work! But due to our concerns about the accuracy of the data we demodulated, we are already at work improving quality of the demodulated data. It turns out the GNU Radio modem wasn't tuned to the correct frequencies for [ITU-T Recommendation V.21](https://www.itu.int/rec/T-REC-V.21/en), and there were numerous bit errors in one side of the conversation. Instead of going through the entire process from GNU Radio through Wireshark, we locate the portion of the PulseView decode that closely matches the incorrect challenge. It's different by a few bits, which is a good sign.
+Unfortunately, it doesn't work! But due to our concerns about the accuracy of the data we demodulated, we are already at work improving quality of the demodulated data. It turns out the GNU Radio modem wasn't tuned to the correct frequencies for [V.21](https://www.itu.int/rec/T-REC-V.21/en), and there were numerous bit errors in one side of the conversation. Instead of going through the entire process from GNU Radio through Wireshark, we locate the portion of the PulseView decode that closely matches the incorrect challenge. It's different by a few bits, which is a good sign.
 
 ![PulseView UART decode of challenge after improving GNU Radio modem](images/pulseview-correct-challenge.png)
 
@@ -169,7 +171,7 @@ Rerunning the Python PIN tester with the cleaned-up challenge data, we locate a 
 
 ```
 ...
-5651 b'692c4106777b1336c393282bc2b5c2a2c289c28b4201c29ac3a87ec3a5c384c399c29c'
+5651 b'692c4106777b1336d3282bb5a2898b42019ae87ee5c4d99c'
 ...
 ```
 
