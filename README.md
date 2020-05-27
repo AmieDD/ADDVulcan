@@ -1,6 +1,6 @@
 # ADDVulcan
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-21-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-22-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 [**HackaSat Challenges**](https://www.hackasat.com/)
 
@@ -93,6 +93,9 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/murrayma"><img src="https://avatars3.githubusercontent.com/u/3729536?v=4" width="100px;" alt=""/><br /><sub><b>Martin Murray</b></sub></a><br /><a href="https://github.com/AmieDD/ADDVulcan/commits?author=murrayma" title="Code">💻</a></td>
     <td align="center"><a href="http://www.sharebrained.com/"><img src="https://avatars0.githubusercontent.com/u/778248?v=4" width="100px;" alt=""/><br /><sub><b>Jared Boone</b></sub></a><br /><a href="https://github.com/AmieDD/ADDVulcan/commits?author=jboone" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/LennertW"><img src="https://avatars2.githubusercontent.com/u/4999638?v=4" width="100px;" alt=""/><br /><sub><b>LennertW</b></sub></a><br /><a href="https://github.com/AmieDD/ADDVulcan/commits?author=LennertW" title="Code">💻</a></td>
+  </tr>
+  <tr>
+    <td align="center"><a href="https://github.com/McCryptoFace"><img src="https://avatars2.githubusercontent.com/u/19789706?v=4" width="100px;" alt=""/><br /><sub><b>Crypty McCryptoFace</b></sub></a><br /><a href="https://github.com/AmieDD/ADDVulcan/commits?author=McCryptoFace" title="Code">💻</a></td>
   </tr>
 </table>
 
