@@ -92,13 +92,17 @@ CONNECT
     * TL;DR - section 4.1.1 of 'NBS Special Publication 500-137'
 ```
 
+@dtechshield and @esden discussed the FIPS-112 requirements and concluded a 4-digit numeric PIN was likely.
+
 ## Decoding Audio and Recovering the PIN
 
 The [audio file](recording.wav) sounded like a phone call using [tone dialing](https://en.wikipedia.org/wiki/Dual-tone_multi-frequency_signaling), followed by a modem conversation.
 
-@miek [examined the tone dialing]()(images/dtmf.png) (in [Inspectrum](https://github.com/miek/inspectrum)?) and @alvarop [decoded the tone dialing](images/2020-05-23_120237.png) (using what tool?) to `4905550175`.
+@miek examined the tone dialing (in [Inspectrum](https://github.com/miek/inspectrum)?) and @alvarop [decoded the tone dialing](images/2020-05-23_120237.png) (using what tool?) to `4905550175`.
 
-@supersat was confident the audio was a 300 baud FSK variant. (...and posted an image of his ATA or SIP registration being unhappy?)
+![inspectrum View of Tone Dialing](images/dtmf.png)
+
+@supersat was confident the audio was a 300 baud FSK variant, recalling [a video of a V.8bis handshake](https://www.youtube.com/watch?v=abapFJN6glo).
 
 @miek attempted to decode the modem audio using inspectrum.
 
@@ -108,7 +112,7 @@ The [audio file](recording.wav) sounded like a phone call using [tone dialing](h
 
 @WillC attempted to demodulate the modem audio using [minimodem](https://github.com/kamalmostafa/minimodem).
 
-A lot of effort went into trying to filter the modem audio. (Did anyone have a particular reason for doing this?)
+A lot of effort went into trying to filter the modem audio, which got modest improvements in decodes with minimodem.
 
 @kandi3kan3 observed that the modulation frequencies in the audio file were not [Bell 103](https://en.wikipedia.org/wiki/Bell_103_modem).
 
@@ -116,8 +120,11 @@ A lot of effort went into trying to filter the modem audio. (Did anyone have a p
 
 @sharebrained tried playing the recording into a [Commodore SX-64](https://en.wikipedia.org/wiki/Commodore_SX-64) running the CCGMS terminal program and a Commodore 1670 modem (300/1200 baud), via a phone attached to either the phone or line ports on the modem. That didn't work, probably due to a lack of [off-hook voltage](https://en.wikipedia.org/wiki/On-_and_off-hook) from the modem. @sharebrained tried making a call through a VoIP ATA to his mobile phone, but got voice mail because the VoIP account's caller ID was the same as the cell phone number. So he called his wife's phone, playing the audio through her phone back into the modem. Nothing. He gave up on this line of attack.
 
-@lennert found some plaintext using `minimodem` with the `-a` option.
+@supersat had a hard time finding a phone cable, but then attempted to decode using a couple of hardware modems, which didn't work out, possibly because they wouldn't go into or support V.21 frequencies. However, the exercise did produce digits for the DTMF tones as a nice side effect.
 
+![SIP Log of Decoded DTMF Tones](images/supersat-sip-tones.png)
+
+@lennert found some plaintext using minimodem with the `-a` option. Unfortunately, minimodem would not produce output in hex format.
 ```
 $ minimodem -r -f test3.wav -a 300
 ### NOCARRIER ndata=359 confidence=1.987 ampl=0.122 bps=300.00 (rate perfect) ###
@@ -134,10 +141,10 @@ $ python3 decodebits.py
 
 @alvarop attempted to guess username and password from the recovered plaintext, but with no luck.
 
-@sharebrained assembled a [quick-and-dirty demodulator](sharebrained/modem_300_v21.grc) using [GNU Radio](https://www.gnuradio.org/). First, he had to figure out what frequencies each band was at. A flow graph was constructed to output to a GUI frequency sink to allow visual estimation of the center frequency of each band. Then two complex bandpass filters were added, one for the high tone and one for the low tone, along with GUI sliders to fine-tune the frequency bands. Rotators to translate the frequency of each filter's output down to 0 hz (DC), through the magic of complex numbers! A quadrature demodulator block after each filter gave an instantaneous frequency output value. The output would be proportional to the dominant detected frequency in the filtered band, and by translating it to DC, the output would be positive for frequencies above the center frequency, and negative below the center frequency. Then, a binary slicer block converted the positive or negative instantaneous frequency value into a 1 (input >= 0 Hz) or 0 (input < 0 Hz), and streamed that out to a file. The output files contained one byte per output bit, with the bit value in the least significant bit of the byte. The files ([lo.u8](gnuradio/lo.u8), [hi.u8](gnuradio/hi.u8)) were dumped into our Discord channel.
+@sharebrained assembled a [quick-and-dirty demodulator](gnuradio/modem.grc) using [GNU Radio](https://www.gnuradio.org/). First, he had to figure out what frequencies each band was at. A flow graph was constructed to output to a GUI frequency sink to allow visual estimation of the center frequency of each band. Then two complex bandpass filters were added, one for the high tone and one for the low tone, along with GUI sliders to fine-tune the frequency bands. Rotators to translate the frequency of each filter's output down to 0 hz (DC), through the magic of complex numbers! A quadrature demodulator block after each filter gave an instantaneous frequency output value. The output would be proportional to the dominant detected frequency in the filtered band, and by translating it to DC, the output would be positive for frequencies above the center frequency, and negative below the center frequency. Then, a binary slicer block converted the positive or negative instantaneous frequency value into a 1 (input >= 0 Hz) or 0 (input < 0 Hz), and streamed that out to a file. The output files contained one byte per output bit, with the bit value in the least significant bit of the byte. The files ([lo.u8](gnuradio/lo.u8), [hi.u8](gnuradio/hi.u8)) were dumped into our Discord channel.
 
-![Output of GNU Radio modem demodulator](images/Screenshot_from_2020-05-23_13-47-05.png)
 ![GNU Radio modem demodulator flowgraph](images/Screenshot_from_2020-05-23_13-51-50.png)
+![Output of GNU Radio modem demodulator](images/Screenshot_from_2020-05-23_13-47-05.png)
 
 @sharebrained took the two GNU Radio demodulator output files (one for each direction of the modem conversation) and loaded them into [PulseView](https://sigrok.org/wiki/PulseView), which is logic analyzer software that includes many protocol decoders, including one for asynchronous serial (UART). He fiddled around with the start, stop, and parity bit settings and eventually got something that decoded bytes that contained strings people were finding via other methods ("GRNDSTTN" and "rocketman6888").
 
@@ -153,7 +160,7 @@ $ python3 decodebits.py
 
 ![PulseView UART of 'rocketman6888'](images/Screenshot_from_2020-05-23_13-58-30.png)
 
-Various combinations of the recovered plaintext were tried as credentials, but to no success. Brute-forcing the PIN was entertained...
+Various combinations of the recovered plaintext were tried as credentials, but to no success.
 
 @sharebrained extracted the output of the UART decoders from PulseView. It turns out you can export it as a log file. First, he exported the whole mess, which included far more information than was necessary.
 
@@ -205,7 +212,7 @@ Various combinations of the recovered plaintext were tried as credentials, but t
 --- snip ---
 ```
 
-@sharebrained wrote some Python to pull out just the decoded characters, making a couple of parsing mistakes in the process. (_Hot tip_: don't export characters from PulseView. Instead export as hex and sort it out in your script -- your parser can just expect two hex characters every time, instead of having to handle both a single character -- which might be whitespace -- or an escaped character formatted as "[xx]", where "xx" is a hex value.) The decodes were posted to the channel, and later amended them after discovering the parsing mistakes, which dropped some characters (notably 0x20, spaces) from the output.
+@sharebrained wrote some Python to pull out just the decoded characters, making a couple of parsing mistakes in the process. The decodes were posted to the channel, and later amended them after discovering the parsing mistakes, which dropped some characters (notably 0x20, spaces) from the output.
 
 ```
 --- snip ---
@@ -225,7 +232,7 @@ Various combinations of the recovered plaintext were tried as credentials, but t
 --- snip ---
 ```
 
-@sharebrained observed there was some framing taking place. Each burst started and ended with either a "\~" (0x7e) or a "\|" (0x7c). One direction of the conversation was consistent in using "\~" only. The other had seemingly random use of either "\~" or "\|". Weird. He remembered this from some recent [HDLC](https://en.wikipedia.org/wiki/High-Level_Data_Link_Control) telecom and [AIS](https://en.wikipedia.org/wiki/Automatic_identification_system) dabbling. Messages start and end with 0x7e. But the 0x7c characters in the bursts from one direction were... confusing.
+@sharebrained observed there was some framing taking place. Each burst started and ended with either a "\~" (0x7e) or a "\|" (0x7c). One direction of the conversation was consistent in using "\~" only. The other had seemingly random use of either "\~" or "\|". He remembered this from some recent [HDLC](https://en.wikipedia.org/wiki/High-Level_Data_Link_Control) telecom and [AIS](https://en.wikipedia.org/wiki/Automatic_identification_system) dabbling. Messages start and end with 0x7e. But the 0x7c characters in the bursts from one direction were... confusing.
 
 @miek was onboard with the data being HDLC. His recovered data was looking similar.
 
@@ -278,6 +285,8 @@ The [resulting .pcapng](modem_0.pcapng) was posted to the Discord channel. Unfor
 
 @supersat dug through the .pcapng and observed a PPP [CHAP](https://en.wikipedia.org/wiki/Challenge-Handshake_Authentication_Protocol) session.
 
+![Wireshark .pcapng of the PPP Negotiation](images/supersat-pcap.png)
+
 @supersat wasn't having any luck using the CHAP challenge extracted from the .pcapng.
 
 ```
@@ -306,11 +315,9 @@ for i in range(10000):
   tryPin('%04d' % i)
 ```
 
-Meanwhile, a PIN brute-forcing army assembled -- @esden, @alvarop, @WillC...
+@sharebrained double-checked the GNU Radio modem. The filters had been tuned by observation and were not close enough to the correct frequencies, which caused the PulseView decoder to produce wrong bits. There were indications in PulseView something was wrong all along, as it showed some framing errors in the same conversation direction. After the demodulator filters were retuned, the hi.u8/lo.u8 bit files were regenerated and decoded through PulseView again.
 
-@sharebrained double-checked the GNU Radio modem. The filters had been tuned by observation and were not close enough to the correct frequencies, which caused the PulseView decoder to produce wrong bits. @supersat's earlier comment about it being V.21 was correct! There were indications in PulseView something was wrong all along, as it showed some framing errors in the same conversation direction. After the demodulator filters were retuned, the hi.u8/lo.u8 bit files were regenerated and decoded through PulseView again.
-
-@sharebrained searched for the part of the serial decode that contained the challenge and dropped the new values in the Discord channel. A few bits had changed from the earlier decode.
+@sharebrained searched for the part of the serial decode that resembled the challenge @supersat had extracted. Indeed, a few bits had changed from the earlier decode, due to using the correct frequencies for the GNU Radio demodulator. The new bytes were posted to Discord:
 
 ```
 11 95 89 69 2D 45 40 1B
@@ -318,13 +325,13 @@ Meanwhile, a PIN brute-forcing army assembled -- @esden, @alvarop, @WillC...
 
 ![PulseView decode of cleaner UART data](images/Screenshot_from_2020-05-23_17-03-33.png)
 
-@supersat retried and got the PIN.
+@supersat retried with the better challenge bits and got the PIN.
 
 ```
 5651
 ```
 
-And then @supersat got the flag. YAY!
+...and then @supersat got the flag. YAY!
 
 ```
 satnet> flag
