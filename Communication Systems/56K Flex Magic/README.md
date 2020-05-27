@@ -119,17 +119,17 @@ Those bits, which resemble the output of a logic analyzer capture of a [UART](ht
 
 ![PulseView decode of GNU Radio bits](images/pulseview-uart-decode.png)
 
-We tried to log in to the second system with many variations of the strings we found. No luck.
+We try to log in to the second system with many variations of the strings we found. No luck.
 
 Reviewing [my_note.txt](files/my_note.txt), we see that the password is likely numeric, and complies with the minimum requirements of [FIPS-112 (Password Usage)](https://nvlpubs.nist.gov/nistpubs/Legacy/FIPS/fipspub112.pdf) and [NBS Special Publication 500-137](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nbsspecialpublication500-137.pdf) (section 4.1.1).
 
 ![NBS SP 500-137 section 4.1.1](images/nbs-sp-500-137-section-4-1-1.png)
 
-How does these hints reconcile with the strings we found in the modem conversation, which are definitely not four-digit numeric PINs?
+How do these hints reconcile with the strings we found in the modem conversation, which are definitely not four-digit numeric PINs?
 
 In the demodulated modem conversation, we notice something resembling [HDLC](https://en.wikipedia.org/wiki/High-Level_Data_Link_Control), with 0x7e flag bytes at the start and end of each modem burst. We also observe a lot of `}` characters, which reminds us of [PPP](https://en.wikipedia.org/wiki/Point-to-Point_Protocol). These two observations are consistent, since PPP is built atop HDLC.
 
-Operating under the PPP assumption, we [transform](python/hdlc.py) the [modem conversation bytes](conversation.txt) into a hex dump which can be imported into [Wireshark](https://www.wireshark.org/), and also saved and shared with the team as a [.pcapng file](modem_0.pcapng).
+Operating under the PPP assumption, we [transform](python/hdlc.py) the [modem conversation bytes](conversation.txt) into a hex dump which can be imported into [Wireshark](https://www.wireshark.org/). A [.pcapng file](modem_0.pcapng) is saved and shared with the team.
 
 Wireshark fails to decode packets in one direction, which is interesting... We're also concerned about how some of the HDLC messages don't use 0x7e for some of the flags, but 0x7c. Perhaps the decoded modem bits are sketchy?
 
@@ -161,7 +161,7 @@ for i in range(10000):
   tryPin('%04d' % i)
 ```
 
-Unfortunately, it doesn't work! But due to our concerns about the accuracy of the data we demodulated, we are already at work improving things. It turns out the GNU Radio modem wasn't tuned to the correct frequencies for V.21, and there were numerous bit errors in one side of the conversation. Instead of going through the entire process from GNU Radio through Wireshark, we locate the portion of the PulseView decode that closely matches the incorrect challenge. It's different by a few bits.
+Unfortunately, it doesn't work! But due to our concerns about the accuracy of the data we demodulated, we are already at work improving quality of the demodulated data. It turns out the GNU Radio modem wasn't tuned to the correct frequencies for [ITU-T Recommendation V.21](https://www.itu.int/rec/T-REC-V.21/en), and there were numerous bit errors in one side of the conversation. Instead of going through the entire process from GNU Radio through Wireshark, we locate the portion of the PulseView decode that closely matches the incorrect challenge. It's different by a few bits, which is a good sign.
 
 ![PulseView UART decode of challenge after improving GNU Radio modem](images/pulseview-correct-challenge.png)
 
