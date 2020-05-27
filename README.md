@@ -1,6 +1,6 @@
 # ADDVulcan
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-22-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-23-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 [**HackaSat Challenges**](https://www.hackasat.com/)
 
@@ -96,6 +96,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
   </tr>
   <tr>
     <td align="center"><a href="https://github.com/McCryptoFace"><img src="https://avatars2.githubusercontent.com/u/19789706?v=4" width="100px;" alt=""/><br /><sub><b>Crypty McCryptoFace</b></sub></a><br /><a href="https://github.com/AmieDD/ADDVulcan/commits?author=McCryptoFace" title="Code">💻</a></td>
+    <td align="center"><a href="http://blogmal.42.org"><img src="https://avatars1.githubusercontent.com/u/464856?v=4" width="100px;" alt=""/><br /><sub><b>Sec</b></sub></a><br /><a href="https://github.com/AmieDD/ADDVulcan/commits?author=Sec42" title="Code">💻</a></td>
   </tr>
 </table>
 
