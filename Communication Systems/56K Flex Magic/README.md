@@ -165,7 +165,7 @@ Unfortunately, it doesn't work! But due to our concerns about the accuracy of th
 
 ![PulseView UART decode of challenge after improving GNU Radio modem](images/pulseview-correct-challenge.png)
 
-Rerunning the Python PIN tester, we locate a PIN that gives us the expected response: `5651`.
+Rerunning the Python PIN tester with the cleaned-up challenge data, we locate a PIN that gives us the expected response: `5651`.
 
 ```
 ...
