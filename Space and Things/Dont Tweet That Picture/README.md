@@ -29,15 +29,16 @@ nc tweet.satellitesabove.me 5022
 ## Files
 
 You'll need these files to solve the challenge.
+
 [Download Files](https://github.com/AmieDD/ADDVulcan/blob/master/Space%20and%20Things/Dont%20Tweet%20That%20Picture/tweet-mike37173uniform.tar.bz2)
 
-![26dc00968d8d054945170bcaa002d356.png](:/42c32936b5b44a548f8df819d8b4653d)
+![](https://github.com/AmieDD/ADDVulcan/blob/master/Space%20and%20Things/Dont%20Tweet%20That%20Picture/Images/epockyear.png)
 
-![2e2a3019f7269be028b07656e5a19f01.png](:/f0693dca1e354c7ea44c8a6531c7800a)
+![](https://github.com/AmieDD/ADDVulcan/blob/master/Space%20and%20Things/Dont%20Tweet%20That%20Picture/Images/solardata.png)
 
-![12769c5187462231e33bd079b54a4dd4.png](:/ed88aef6d7f4456fa8106ba6144f18b9)
+![](https://github.com/AmieDD/ADDVulcan/blob/master/Space%20and%20Things/Dont%20Tweet%20That%20Picture/Images/sun_tweet.png)
 
-![f3c3c0bfb511bdc876d8ff8ffc15282d.png](:/f44bc39b703d4e0fb5a4199f34649795)
+![](https://github.com/AmieDD/ADDVulcan/blob/master/Space%20and%20Things/Dont%20Tweet%20That%20Picture/Images/twoline_element.png)
 
 ![5b1b988d97d68966b015d6abf1945dc3.png](:/810b1176c8ef40b794d6cc5b6db1b7a8)
 
