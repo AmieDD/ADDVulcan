@@ -111,11 +111,11 @@ $ python3 decodebits.py
 ~Â#i-E@GRNDSTTNA8F6Cðj
 ```
 
-The GNU Radio approach is similarly dicey. Using carrier frequency measurements made from a spectrogram view, we construct a [flow graph](gnuradio/modem.grc) that filters and separates the two frequency bands (one for each direction of the modem conversation). These two bands were transformed into two frequency-vs-time outputs that were centered on 0 Hz. Those frequency outputs are sliced into bits and output to two files -- [hi.u8](gnuradio/hi.u8) and [lo.u8](gnuradio/lo.u8).
+The GNU Radio approach is similarly dicey. Using carrier frequency measurements made from a spectrogram view, we construct a [flow graph](gnuradio/modem.grc) that filters and separates the two frequency bands (one for each direction of the modem conversation). These two bands are transformed into two frequency-vs-time outputs that are centered on 0 Hz. Those frequency outputs are sliced into bits and output to two files -- [hi.u8](gnuradio/hi.u8) and [lo.u8](gnuradio/lo.u8).
 
 ![GNU Radio flow graph](images/gnuradio-flow-graph.png)
 
-Those bits, which resemble the output of a logic analyzer capture of a [UART](https://en.wikipedia.org/wiki/Universal_asynchronous_receiver-transmitter), are fed into PulseView, which has a [UART protocol decoder](https://sigrok.org/wiki/Protocol_decoder:Uart). Strings that were recovered using other techniques were plainly visible, despite the occasional UART framing error.
+Those bits, which resemble the output of a logic analyzer capture of a [UART](https://en.wikipedia.org/wiki/Universal_asynchronous_receiver-transmitter), are fed into PulseView, which has a [UART protocol decoder](https://sigrok.org/wiki/Protocol_decoder:Uart). Strings that were recovered using other techniques are plainly visible, despite the occasional UART framing error.
 
 ![PulseView decode of GNU Radio bits](images/pulseview-uart-decode.png)
 
