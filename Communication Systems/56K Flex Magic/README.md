@@ -92,7 +92,7 @@ CONNECT
     * TL;DR - section 4.1.1 of 'NBS Special Publication 500-137'
 ```
 
-## Decoding Audio
+## Decoding Audio and Recovering the PIN
 
 The [audio file](recording.wav) sounded like a phone call using [tone dialing](https://en.wikipedia.org/wiki/Dual-tone_multi-frequency_signaling), followed by a modem conversation.
 
