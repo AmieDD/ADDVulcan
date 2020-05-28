@@ -1,6 +1,6 @@
 # ADDVulcan
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-22-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-23-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 [**HackaSat Challenges**](https://www.hackasat.com/)
 
@@ -96,6 +96,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
   </tr>
   <tr>
     <td align="center"><a href="https://github.com/McCryptoFace"><img src="https://avatars2.githubusercontent.com/u/19789706?v=4" width="100px;" alt=""/><br /><sub><b>Crypty McCryptoFace</b></sub></a><br /><a href="https://github.com/AmieDD/ADDVulcan/commits?author=McCryptoFace" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/accelocomodator"><img src="https://avatars2.githubusercontent.com/u/66049411?v=4" width="100px;" alt=""/><br /><sub><b>accelocomodator</b></sub></a><br /><a href="https://github.com/AmieDD/ADDVulcan/commits?author=accelocomodator" title="Code">💻</a></td>
   </tr>
 </table>
 
