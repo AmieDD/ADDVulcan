@@ -1,0 +1,5 @@
+# Lt Starbuck
+
+![](https://media.giphy.com/media/7gAULpAkC2vSw/giphy.gif)
+
+In this CTF, questions may come in one of three different flavors. The second is a service running on an external host that has the flag on it. Connect to the external host, give it your ticket, solve the problem it asks of you, get the flag, and submit it to the scoreboard to score points. Most of these questions will require you to write a program to interact with the server in order to solve the problem within a strict time limit.

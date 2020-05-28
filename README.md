@@ -1,63 +1,63 @@
 # ADDVulcan
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-21-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-22-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 [**HackaSat Challenges**](https://www.hackasat.com/)
 
-### Space Cadets
+### [Space Cadets](https://github.com/AmieDD/ADDVulcan/tree/master/Space%20Cadets)
 
-- Lt Commander Data 
-- Lt Starbuck 
-- Capt Solo 
+- [Lt Commander Data](https://github.com/AmieDD/ADDVulcan/tree/master/Space%20Cadets/LT%20Commander%20Data)
+- [Lt Starbuck](https://github.com/AmieDD/ADDVulcan/tree/master/Space%20Cadets/LT%20Starbuck)
+- [Capt Solo](https://github.com/AmieDD/ADDVulcan/tree/master/Space%20Cadets/Capt%20Solo) 
 
-### Astronomy, Astrophysics, Astrometry, Astrodynamics, AAAA
+### [Astronomy, Astrophysics, Astrometry, Astrodynamics, AAAA](https://github.com/AmieDD/ADDVulcan/tree/master/Astronomy%20Astrophysics%20Astrometry%20Astrodynamics%20AAAA)
 
-- I Like to Watch Hot stuff! 
-- Attitude Adjustment 
-- Seeing Stars 
-- Digital Filters, Meh
-- SpaceBook
-- My 0x20
+- [I Like to Watch Hot stuff!](https://github.com/AmieDD/ADDVulcan/tree/master/Astronomy%20Astrophysics%20Astrometry%20Astrodynamics%20AAAA/I%20Like%20to%20Watch)
+- [Attitude Adjustment](https://github.com/AmieDD/ADDVulcan/tree/master/Astronomy%20Astrophysics%20Astrometry%20Astrodynamics%20AAAA/Attitude%20Adjustment)
+- [Seeing Stars](https://github.com/AmieDD/ADDVulcan/tree/master/Astronomy%20Astrophysics%20Astrometry%20Astrodynamics%20AAAA/Seeing%20Stars)
+- [Digital Filters, Meh](https://github.com/AmieDD/ADDVulcan/tree/master/Astronomy%20Astrophysics%20Astrometry%20Astrodynamics%20AAAA/Digital%20Filters%2C%20Me)
+- [SpaceBook](https://github.com/AmieDD/ADDVulcan/tree/master/Astronomy%20Astrophysics%20Astrometry%20Astrodynamics%20AAAA/SpaceBook)
+- [My 0x20](https://github.com/AmieDD/ADDVulcan/tree/master/Astronomy%20Astrophysics%20Astrometry%20Astrodynamics%20AAAA/My%200x20)
 
-### Satellite Bus
+### [Satellite Bus](https://github.com/AmieDD/ADDVulcan/tree/master/Satellite%20Bus)
 
-- Magic Bus
-- Sun? On my Sat?
-- Sun? On my Sat? Again?
-- Monkey in the Middle
-- Bytes Away!
+- [Magic Bus](https://github.com/AmieDD/ADDVulcan/tree/master/Satellite%20Bus/Magic%20Bus)
+- [Sun? On my Sat?](https://github.com/AmieDD/ADDVulcan/tree/master/Satellite%20Bus/Sun%3F%20On%20my%20Sat%3F)
+- [Sun? On my Sat? Again?](https://github.com/AmieDD/ADDVulcan/tree/master/Satellite%20Bus/Sun%3F%20On%20my%20Sat%3F%20Again%3F)
+- [Monkey in the Middle](https://github.com/AmieDD/ADDVulcan/tree/master/Satellite%20Bus/Monkey%20in%20the%20Middle)
+- [Bytes Away!](https://github.com/AmieDD/ADDVulcan/tree/master/Satellite%20Bus/Bytes%20Away!)
 
-### Ground Segment
+### [Ground Segment](https://github.com/AmieDD/ADDVulcan/tree/master/Groud%20Segment)
 
-- Track The Sat
-- Can you hear me now?
-- Talk to me Goose
-- I see what you did there
-- Vax the Sat
+- [Track The Sat](https://github.com/AmieDD/ADDVulcan/tree/master/Groud%20Segment/Track%20the%20sat)
+- [Can you hear me now?](https://github.com/AmieDD/ADDVulcan/tree/master/Groud%20Segment/Can%20you%20hear%20me%20now)
+- [Talk to me Goose](https://github.com/AmieDD/ADDVulcan/tree/master/Groud%20Segment/Talk%20to%20me%20Goose)
+- [I see what you did there](https://github.com/AmieDD/ADDVulcan/tree/master/Groud%20Segment/I%20see%20what%20you%20did%20there)
+- [Vax the Sat](https://github.com/AmieDD/ADDVulcan/tree/master/Groud%20Segment/Vax%20the%20Sat)
 
-### Communication Systems
+### [Communication Systems](https://github.com/AmieDD/ADDVulcan/tree/master/Communication%20Systems)
 
-- Phasors to Stun
-- 56K Flex Magic
-- Phasors to Kill
-- Ground Control to Major Tom
-- Something's Out There
+- [Phasors to Stun](https://github.com/AmieDD/ADDVulcan/tree/master/Communication%20Systems/Phasors%20to%20Stun)
+- [56K Flex Magic](https://github.com/AmieDD/ADDVulcan/tree/master/Communication%20Systems/56K%20Flex%20Magic)
+- [Phasors to Kill](https://github.com/AmieDD/ADDVulcan/tree/master/Communication%20Systems/Phasors%20to%20Kill)
+- [Ground Control to Major Tom](https://github.com/AmieDD/ADDVulcan/tree/master/Communication%20Systems/Ground%20Control%20to%20Major%20Tom)
+- [Something's Out There](https://github.com/AmieDD/ADDVulcan/tree/master/Communication%20Systems/Something's%20Out%20There)
 
-### Payload Modules
+### [Payload Modules](https://github.com/AmieDD/ADDVulcan/tree/master/Payload%20Modules)
 
-- That's not on my calendar
-- SpaceDB
-- Space Race
-- Leaky Crypto
-- LaunchLink
+- [That's not on my calendar]()
+- [SpaceDB](https://github.com/AmieDD/ADDVulcan/tree/master/Payload%20Modules/SpaceDB)
+- [Space Race](https://github.com/AmieDD/ADDVulcan/tree/master/Payload%20Modules/Space%20Race)
+- [Leaky Crypto](https://github.com/AmieDD/ADDVulcan/tree/master/Payload%20Modules/Leaky%20Crypto)
+- [LaunchLink](https://github.com/AmieDD/ADDVulcan/tree/master/Payload%20Modules/Launch%20Link)
 
-## Space and Things
+## [Space and Things](https://github.com/AmieDD/ADDVulcan/tree/master/Space%20and%20Things)
 
-- Where's the Sat?
-- Don't Tweet That Picture
-- Good Plan? Great Plan?
-- 1201 Alarm
-- Rogue Base Station
+- [Where's the Sat?](https://github.com/AmieDD/ADDVulcan/tree/master/Space%20and%20Things/Wheres%20the%20sat)
+- [Don't Tweet That Picture](https://github.com/AmieDD/ADDVulcan/tree/master/Space%20and%20Things/Dont%20Tweet%20That%20Picture)
+- [Good Plan? Great Plan?](https://github.com/AmieDD/ADDVulcan/tree/master/Space%20and%20Things/Good%20Plan%3F%20Great%20Plan%3F)
+- [1201 Alarm](https://github.com/AmieDD/ADDVulcan/tree/master/Space%20and%20Things/1201%20Alarm)
+- [Rogue Base Station](https://github.com/AmieDD/ADDVulcan/tree/master/Space%20and%20Things/Rogue%20Base%20Station)
 
 ## Contributors ✨
 
@@ -93,6 +93,9 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/murrayma"><img src="https://avatars3.githubusercontent.com/u/3729536?v=4" width="100px;" alt=""/><br /><sub><b>Martin Murray</b></sub></a><br /><a href="https://github.com/AmieDD/ADDVulcan/commits?author=murrayma" title="Code">💻</a></td>
     <td align="center"><a href="http://www.sharebrained.com/"><img src="https://avatars0.githubusercontent.com/u/778248?v=4" width="100px;" alt=""/><br /><sub><b>Jared Boone</b></sub></a><br /><a href="https://github.com/AmieDD/ADDVulcan/commits?author=jboone" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/LennertW"><img src="https://avatars2.githubusercontent.com/u/4999638?v=4" width="100px;" alt=""/><br /><sub><b>LennertW</b></sub></a><br /><a href="https://github.com/AmieDD/ADDVulcan/commits?author=LennertW" title="Code">💻</a></td>
+  </tr>
+  <tr>
+    <td align="center"><a href="https://github.com/McCryptoFace"><img src="https://avatars2.githubusercontent.com/u/19789706?v=4" width="100px;" alt=""/><br /><sub><b>Crypty McCryptoFace</b></sub></a><br /><a href="https://github.com/AmieDD/ADDVulcan/commits?author=McCryptoFace" title="Code">💻</a></td>
   </tr>
 </table>
 
