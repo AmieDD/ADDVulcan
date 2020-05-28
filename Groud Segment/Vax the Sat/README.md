@@ -1,9 +1,9 @@
 # Vax the Sat
 Connect: ```nc vax.satellitesabove.me 5035```
-Ticket:ticket{foxtrot41690papa:GImHwxb6WA16b1rVdUKJzE2W2UFlPnWZ1P3NXGS97b39Wc6M5_5m6EY3ZUz88BckgQ}
+Ticket: ```ticket{foxtrot41690papa:GImHwxb6WA16b1rVdUKJzE2W2UFlPnWZ1P3NXGS97b39Wc6M5_5m6EY3ZUz88BckgQ}```
 
 
-#Solution
+# Solution
 - Login to OpenBSD instance: root : vaxthesat!
 - Then use the command below to get the flag:
 
