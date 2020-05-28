@@ -84,7 +84,7 @@ from PIL import Image
 flattened = bytes([pixel for row in data for pixel in row])
 
 # parse the data as a 128x128 image, 8bpp greyscale ('L' mode)
-image = Image.frombytes('L', (128, 128), data)
+image = Image.frombytes('L', (128, 128), flattened)
 image.save('stars1.png', 'PNG')
 ```
 
