@@ -211,6 +211,15 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "0xdec",
+      "name": "Jordi Pakey-Rodriguez",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/3586264?v=4",
+      "profile": "https://gitlab.com/0xdec",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
