@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import numpy as np
 
 # Optimized angle function with less error checks
