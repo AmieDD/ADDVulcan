@@ -1,9 +1,9 @@
 import stardb_improved
 import math
-import numpy
+import numpy as np
 
 def find_by_angles(a1, a2, ab=None):
-    min_dist = numpy.inf
+    min_dist = np.inf
     best = None
     for i, stars_next in enumerate(stardb_improved.stars_next):
         d1 = a1 - stars_next[0]

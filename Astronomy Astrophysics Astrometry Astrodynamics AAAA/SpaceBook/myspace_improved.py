@@ -67,45 +67,29 @@ while True:
     print("\nWE RCVD:")
     print(ref_vectors)
 
-    indexes = []
-    for i,rowt in ref_vectors.iterrows():
-        star_obs = np.array([rowt['x'], rowt['y'], rowt['z']])
+    # Build a simple list with numpy vectors for easier processing
+    obs_positions = [np.array([rowt[1]['x'], rowt[1]['y'], rowt[1]['z']]) for rowt in ref_vectors.iterrows()]
 
-        # Find the closest two stars in the observation
-        next_1_a = np.inf
-        next_1_i = None
-        next_1_p = None
-        next_2_a = np.inf
-        next_2_i = None
-        next_2_p = None
-        for i_t, rowt_t in ref_vectors.iterrows():
-            if i == i_t:
-                continue
-            star_obs_t = np.array([rowt_t['x'], rowt_t['y'], rowt_t['z']])
-            a = angle_between(star_obs, star_obs_t)
-            if a < next_1_a:
-                next_2_a = next_1_a
-                next_2_i = next_1_i
-                next_2_p = next_1_p
-                next_1_a = a
-                next_1_i = i_t
-                next_1_p = star_obs_t
-            elif a < next_2_a:
-                next_2_a = a
-                next_2_i = i_t
-                next_2_p = star_obs_t
+    matches = []
+    for i, obs_position in enumerate(obs_positions):
+        # Calculate the angles between this observation and all other observations.
+        # Find the two obervations which have the smallest angle.
+        angels = [angle_between(obs_position, other_obs_pos) for other_obs_pos in obs_positions]
+        closest_obs = np.argsort(angels)[:3]
 
-        print(f"Two closest stars next to {i} are {next_1_i} and {next_2_i}")
-        index, error = stars_improved.find_by_angles(next_1_a, next_2_a, angle_between(next_1_p, next_2_p))
-        print(f"Matched catalog star: {index} (Error: {error:.6})")
-        indexes.append((index, error))
+        # Get the angles as well as the angle between the two closest observations.
+        a1 = angels[closest_obs[1]]
+        a2 = angels[closest_obs[2]]
+        ab = angle_between(obs_positions[closest_obs[1]], obs_positions[closest_obs[2]])
 
-    # Take the 5 best matches and build a string
-    indexes.sort(key = lambda x: x[1])
-    indexes = indexes[:5]
-    indexes = np.array([str(i[0]) for i in indexes])
-    index_string = ','.join(indexes)
+        print(f"Two closest observations next to observation {i} are {closest_obs[1]} and {closest_obs[2]}")
+        index, error = stars_improved.find_by_angles(a1, a2, ab)
+        print(f"Matched star from catalog: {index} (Error: {error:.6})")
+        matches.append((index, error))
 
+    # Take the 5 best matches (smallest error) and build a string
+    matches.sort(key = lambda x: x[1])
+    index_string = ','.join([str(i[0]) for i in matches[:5]])
 
     print("\nWE SENT")
     print(index_string)
