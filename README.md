@@ -105,6 +105,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/McCryptoFace"><img src="https://avatars2.githubusercontent.com/u/19789706?v=4" width="100px;" alt=""/><br /><sub><b>Crypty McCryptoFace</b></sub></a><br /><a href="https://github.com/AmieDD/ADDVulcan/commits?author=McCryptoFace" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/accelocomodator"><img src="https://avatars2.githubusercontent.com/u/66049411?v=4" width="100px;" alt=""/><br /><sub><b>accelocomodator</b></sub></a><br /><a href="https://github.com/AmieDD/ADDVulcan/commits?author=accelocomodator" title="Code">💻</a></td>
     <td align="center"><a href="https://gitlab.com/0xdec"><img src="https://avatars1.githubusercontent.com/u/3586264?v=4" width="100px;" alt=""/><br /><sub><b>Jordi Pakey-Rodriguez</b></sub></a><br /><a href="https://github.com/AmieDD/ADDVulcan/commits?author=0xdec" title="Code">💻</a></td>
+    <td align="center"><a href="http://blogmal.42.org"><img src="https://avatars1.githubusercontent.com/u/464856?v=4" width="100px;" alt=""/><br /><sub><b>Sec42</b></sub></a><br /><a href="https://github.com/AmieDD/ADDVulcan/commits?author=Sec42" title="Code">💻</a></td>
   </tr>
 </table>
 
