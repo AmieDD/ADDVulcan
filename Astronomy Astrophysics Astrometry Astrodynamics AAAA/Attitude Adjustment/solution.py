@@ -10,8 +10,9 @@ from pyquaternion import Quaternion
 from quat import quat
 
 def solveArrays(xArrays,yArrays):
+
     """
-    # TRIAD:
+    # TRIAD (1st try):
     # Does not work :(
     Asub = []
     for x in range(0,3):
@@ -67,6 +68,8 @@ if __name__ == '__main__':
     print("Catalog Loaded...")
 
     yArrays = []
+
+    print("Connecting...")
     nc = nclib.Netcat(('attitude.satellitesabove.me', 5012), verbose=True)
     nc.recv()
     nc.send(b'ticket{charlie47226alpha:GDIXRN78-6xCK34RmdUj_8lTV5t9hxwHiny8skzTpU7h6mnKPmpqYZfmJGu0G2yn7Q}\n')

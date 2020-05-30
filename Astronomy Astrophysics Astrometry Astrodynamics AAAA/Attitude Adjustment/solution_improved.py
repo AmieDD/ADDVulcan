@@ -7,8 +7,40 @@ import nclib
 import numpy as np
 from pyquaternion import Quaternion
 
+from quat import quat
 
 def solveArrays(catalog, observations):
+    """
+    # TRIAD (2nd try):
+    # Based on "Attitude Determination Using Two Vector Measurements":
+    # https://ntrs.nasa.gov/archive/nasa/casi.ntrs.nasa.gov/19990052720.pdf
+    # Page 1 and 2
+    # Does work but was only discovered after solving the challenge using an SVD
+    obs1 = np.array([float(f) for f in observations[0][1:]])
+    obs2 = np.array([float(f) for f in observations[1][1:]])
+
+    star_id1 = observations[0][0]
+    star_id2 = observations[1][0]
+
+    star_data1 = catalog[int(star_id1)]
+    star_data2 = catalog[int(star_id2)]
+
+    star_loc1 = np.array([float(f) for f in star_data1[:3]])
+    star_loc2 = np.array([float(f) for f in star_data2[:3]])
+
+    b1 = np.reshape(obs1,(-1, 3))
+    b2 = np.reshape(obs2,(-1, 3))
+    b3 = np.cross(b1, b2) / np.linalg.norm(np.cross(b1, b2))
+    r1 = np.reshape(star_loc1,(-1, 3))
+    r2 = np.reshape(star_loc2,(-1, 3))
+    r3 = np.cross(r1, r2) / np.linalg.norm(np.cross(r1, r2))
+
+    A = b1*r1.T + b3*r3.T + np.cross(b1, b3) * np.cross(r1, r3).T
+
+    qx, qy, qz, qw = quat(A)
+    q = Quaternion(qw, qx, qy, qz).normalised
+    """
+
     # Based on https://ntrs.nasa.gov/archive/nasa/casi.ntrs.nasa.gov/19990104598.pdf
     # Slides 1 and 4
     B = np.zeros((3,3))
@@ -33,6 +65,7 @@ def solveArrays(catalog, observations):
 
     # A is an orthogonal rotation matrix and translates nicely into a normalized quaternion
     q = Quaternion(matrix=A)
+
     print(f"Attitude: (x:{q.x}, y:{q.y}, z:{q.z}, w:{q.w})")
     return q
 
@@ -47,6 +80,8 @@ if __name__ == '__main__':
     print("Catalog Loaded...")
 
     observations = []
+
+    print("Connecting...")
     nc = nclib.Netcat(('attitude.satellitesabove.me', 5012), verbose=True)
     nc.recv()
     nc.send(b'ticket{charlie47226alpha:GDIXRN78-6xCK34RmdUj_8lTV5t9hxwHiny8skzTpU7h6mnKPmpqYZfmJGu0G2yn7Q}\n')
