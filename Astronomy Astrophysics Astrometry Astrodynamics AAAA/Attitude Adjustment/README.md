@@ -66,8 +66,7 @@ We have a look at the star catalog in the `test.txt` file from the `Files` secti
 [...]
 ```
 
-From the description we know that these are vectors in `(X,Y,Z,W)` format with `(X,Y,Z)` denoting a
-vector pointing towards some star and `W` denoting its observed magnitudes.
+From the description we know that each line contains a (unit) vector pointing towards a star as well as the stars magnitude. It is obvious that the magnitude is the last number and therefore the first three numbers are the vector in `(X,Y,Z)` format.
 
 We connect to the server, provide our ticket and are presented with this list:
 ```
