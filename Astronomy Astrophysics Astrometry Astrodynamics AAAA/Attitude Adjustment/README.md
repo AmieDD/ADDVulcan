@@ -170,7 +170,7 @@ We can see two things:
  - We have to do this 19 more times
 
 Confident that our solution is correct, we start to automate the process and write a Python script which
-automates the parsing the input, calculating a solution and submitting it to the server. It can be found in `solution.py`.
+automates parsing the input, calculating a solution and submitting it to the server. It can be found in `solution.py`.
 
 Calculating the vectors and the rotation matrix `A` are straight forward. The `pyquaternion` library also provides a class to work with quaternions. The class can be initialized with a rotation matrix but in our case it simply errors out with:
 `ValueError: Matrix must be orthogonal, i.e. its transpose should be its inverse`. Obviously the calculated rotation matrix is not perfect and needs some kind of orthogonalization. All naive tries fail and we go back to the website we used originally to convert the rotation matrix into a quaternion. Somehow it must have done it!
