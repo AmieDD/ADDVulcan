@@ -1,6 +1,6 @@
 # ADDVulcan
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-25-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-26-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 [**HackaSat Challenges**](https://www.hackasat.com/)
 
@@ -106,6 +106,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/accelocomodator"><img src="https://avatars2.githubusercontent.com/u/66049411?v=4" width="100px;" alt=""/><br /><sub><b>accelocomodator</b></sub></a><br /><a href="https://github.com/AmieDD/ADDVulcan/commits?author=accelocomodator" title="Code">💻</a></td>
     <td align="center"><a href="https://gitlab.com/0xdec"><img src="https://avatars1.githubusercontent.com/u/3586264?v=4" width="100px;" alt=""/><br /><sub><b>Jordi Pakey-Rodriguez</b></sub></a><br /><a href="https://github.com/AmieDD/ADDVulcan/commits?author=0xdec" title="Code">💻</a></td>
     <td align="center"><a href="http://greatscottgadgets.com/"><img src="https://avatars2.githubusercontent.com/u/1195107?v=4" width="100px;" alt=""/><br /><sub><b>Michael Ossmann</b></sub></a><br /><a href="https://github.com/AmieDD/ADDVulcan/commits?author=mossmann" title="Code">💻</a></td>
+    <td align="center"><a href="http://straithe.com"><img src="https://avatars3.githubusercontent.com/u/5331861?v=4" width="100px;" alt=""/><br /><sub><b>Straithe</b></sub></a><br /><a href="https://github.com/AmieDD/ADDVulcan/commits?author=straithe" title="Code">💻</a></td>
   </tr>
 </table>
 
