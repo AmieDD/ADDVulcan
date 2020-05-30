@@ -222,7 +222,7 @@ print(f"Attitude: (x:{q.x}, y:{q.y}, z:{q.z}, w:{q.w})")
 ```
 
 To our delight this gets us past round 2. We quickly automate this into `solution.py` and soon after
-the scripts runs trough all rounds and we get presented with a flag:
+the script runs through all rounds and we get rewarded with a flag:
 ```
 ======== Receiving 4096B ========
 << b'0 Left...'
