@@ -102,10 +102,8 @@ ID corresponds to a line inside `test.txt`.
 
 We do a little bit of research on what the term *attitude* means in the context of satellites. The
 following two PDFs are examined:
-- https://ntrs.nasa.gov/archive/nasa/casi.ntrs.nasa.gov/20110007876.pdf
-- http://www.s3l.be/usr/files/di/fi/2/Lecture13_ADCS_TjorvenDelabie_20181111202.pdf
-
-[Rotation of an object in space](image0.jpg)
+- [Attitude Determination and Control Systems](https://ntrs.nasa.gov/archive/nasa/casi.ntrs.nasa.gov/20110007876.pdf)
+- [Attitude Determination And Control](http://www.s3l.be/usr/files/di/fi/2/Lecture13_ADCS_TjorvenDelabie_20181111202.pdf)
 
 Given these and the fact that the interactive server connection demands 4 floats we assume that our
 answer needs to be a [quaternion](http://www.chrobotics.com/library/understanding-quaternions)
@@ -124,40 +122,18 @@ satellite. Note: Even though the origin of the reference frame of the satellite 
 origin with the reference frame of the catalog, the vectors match up due to the huge distance to the
 observed stars.
 
+![Rotation of an object in space](unknown.png)
+
 This rotation can generally be described by a 3x3
 [rotation matrix](https://en.wikipedia.org/wiki/Rotation_matrix). Such a matrix can be converted into
 the required quaternion to solve the challenge.
 
-But how to get to this matrix? Further literature research uncovers the following paper: [Attitude Determination Using Two Vector Measurements](https://ntrs.nasa.gov/archive/nasa/casi.ntrs.nasa.gov/19990052720.pdf). It introduces the `TRIAD` algorithm which uses a two sets (of two vectors each) to estimate the attitude of the satellite. Each set consists of a vector from the satellite reference frame and the the corresponding vector from the star catalog. These are then combined into a third set of vectors (hence *TRIAD*) and combined to produce a rotation matrix `A`.
+But how to get to this matrix? Further literature research uncovers the following paper: [Attitude Determination Using Two Vector Measurements](https://ntrs.nasa.gov/archive/nasa/casi.ntrs.nasa.gov/19990052720.pdf). It details the `TRIAD` algorithm:
 
-We start testing this solution in octave and arrive at our first rotation matrix `A`:
+![TRIAD algorithm](triad-1.png)
+
+We start testing this solution in GNU Octave and arrive at our first rotation matrix `A`:
 ```
->> A1 = x1'*y1
-
-A1 =
-
-   0.0160025   0.1859038   0.4742804
-  -0.0039987  -0.0464536  -0.1185130
-  -0.0267164  -0.3103699  -0.7918200
-
->> A2 = x2'*y2
-
-A2 =
-
-  -0.0276281   0.1100340   0.3898548
-   0.0039134  -0.0155858  -0.0552213
-   0.0620604  -0.2471673  -0.8757238
-
->> A3 = x3'*y3
-
-A3 =
-
-  -0.052882   0.138480   0.309192
-   0.032679  -0.085576  -0.191070
-   0.141140  -0.369600  -0.825229
-
->> A = A1 + A2 + A3
-
 A =
 
   -0.064507   0.434417   1.173328
@@ -258,7 +234,12 @@ the scripts runs trough all rounds and we get presented with a flag:
 After finishing the CtF we had another look at the solution to this problem. While the SVD based approach worked, we were still wondering why the `TRIAD` algorithm did not work. We were also wondering if all the normalization and special conversion from the rotation matrix to the quaternion were still needed.
 
 ### TRIAD
-After reading the paper which we used to implement the `TRIAD` algorithm again it becomes clear that we can not simply take three independent sets of vectors from our lists. Instead we should pick two sets, generate the third set from these and then perform a slightly different calculation based on these sets. Implemented in Python it looks like this (see `solution_improved.py`):
+After reading the paper explaining the `TRIAD` algorithm again it became clear that we were missing a crucial step before creating the two triads of vectors. The paper details how to pick two sets of two vectors and then use these sets to generate two new sets of three vectors each. These new sets can then be used to perfom the computation:
+
+![TRIAD algorithm](triad-2.png)
+
+Implemented in Python our working `TRIAD` implementation looks like this (see `solution_improved.py`):
+
 ```Python
 obs1 = np.array([float(f) for f in observations[0][1:]])
 obs2 = np.array([float(f) for f in observations[1][1:]])
