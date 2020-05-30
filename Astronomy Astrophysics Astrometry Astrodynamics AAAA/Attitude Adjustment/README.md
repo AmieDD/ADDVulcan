@@ -167,7 +167,7 @@ We submit this quaternion (formatted as `0.9189114, 0.1200101, 0.346868, -0.1445
 
 We can see two things:
  - Apparently the solution is correct (even though we know from poking around that `1,0,0,0` is also an accepted solution for the first round).
- - We have to do this 19 more times
+ - We have to do this 19 more times.
 
 Confident that our solution is correct, we start to automate the process and write a Python script which
 automates parsing the input, calculating a solution and submitting it to the server. It can be found in `solution.py`.
@@ -180,10 +180,10 @@ Studying the websites source leads us to an implementation in [three.js](https:/
 We supply the resulting quaternions to the challenge server but it is not happy and says `Invalid vector, Make sure to normalize`. Obviously some normalization is needed and thankfully the `Quaternion` class from `pyquaternion` offers such a function: `q = Quaternion(qw, qx, qy, qz).normalised`.
 
 The server is now happy with the quaternion in general but our solution for the second round is not accepted. We start wondering what could be the cause. We ponder the following possibilities:
- - We have to average with the previous result
- - We have to average multiple observations into a single vector
+ - We have to average with the previous result.
+ - We have to average multiple observations into a single vector.
  - We should try a different subset of vectors (currently we only use three) from provided data.
- - Maybe the star catalog is not 0 indexed but 1 indexed
+ - Maybe the star catalog is not 0 indexed but 1 indexed.
 
 Sadly none of these ideas lead anywhere and it looks like we are stuck.
 
@@ -268,17 +268,20 @@ q = Quaternion(qw, qx, qy, qz).normalised
 ```
 
 ### SVD
-Poking around some more we realize that:
+Poking around some more we realized that:
  - The SVD produces an orthogonal rotation matrix which can be directly used (`q = Quaternion(matrix=A)`).
  - The resulting quaternion is already normalized (no need to use `q.normalised`).
- - The stars magnitude can be ignored
- - Python3 has a much nicer notation for matrix multiplication
- - Numpy offers some nice helper functions to create the used matrices
+ - The stars magnitude can be ignored.
+ - Python3 has a much nicer notation for matrix multiplication.
+ - numpy offers some nice helper functions to create the used matrices.
+ - scipy offers conversions from rotations to quaternions.
 
-This leads to our cleaned up solution (found as well in `solution_improved.py`):
+This lead to our cleaned up solution (found as well in `solution_improved.py`):
 ```Python
+from scipy.spatial.transform import Rotation as R
+
 B = np.zeros((3,3))
-# First three observations are actually enough
+# First two observations are actually enough
 for obs in observations:
     star_id = obs[0]
     obs = np.array([float(f) for f in obs[1:]])
@@ -297,9 +300,8 @@ u, s, vh = np.linalg.svd(B, full_matrices=True)
 C = np.diag([1, 1, np.linalg.det(u) * np.linalg.det(vh)])
 A = u @ C @ vh
 
-# A is an orthogonal rotation matrix and translates nicely into a normalized quaternion
-q = Quaternion(matrix=A)
-print(f"Attitude: (x:{q.x}, y:{q.y}, z:{q.z}, w:{q.w})")
+q = R.from_matrix(A).as_quat()
+print(f"Attitude: (x:{q[0]}, y:{q[1]}, z:{q[2]}, w:{q[3]})")
 ```
 
 # Additional resources
