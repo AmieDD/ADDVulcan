@@ -59,7 +59,7 @@ Your team's flag for this challenge will look something like flag{charlie47226al
 # Writeup by schneider
 
 ## Initial solution
-We have a look at the star catalog in the `test.txt` file from the `Files` section of the challenge. It contains 2500 lines containing 4 numbers each:
+We have a look at the star catalog in `test.txt` from the `Files` section of the challenge. It contains 2500 lines containing 4 numbers each:
 ```
 0.07002547605232286,	0.11013923822791234,	0.9914463076265002,	549.9163822901205
 -0.343541169379814,	0.8721600435864687,	0.34830492863638757,	549.8552449937595
@@ -117,7 +117,7 @@ An illustration of whats going on:
 ![Mapping CT vectors to ST vectors](image0.jpg)
 
 The vectors from the catalog correspond to stars in the ST reference frame. The observations from the
-star tracker are from a rotated reference frame which represents the rotation (or attitude) of the
+star tracker are from a rotated CT reference frame which represents the rotation (or attitude) of the
 satellite. Note: Even though the origin of the reference frame of the satellite does not share its
 origin with the reference frame of the catalog, the vectors match up due to the huge distance to the
 observed stars.
@@ -167,34 +167,37 @@ We submit this quaternion (formatted as `0.9189114, 0.1200101, 0.346868, -0.1445
 
 We can see two things:
  - Apparently the solution is correct (even though we know from poking around that `1,0,0,0` is also an accepted solution for the first round).
- - We have to do this 19 more times
+ - We have to do this 19 more times.
 
 Confident that our solution is correct, we start to automate the process and write a Python script which
-automates the parsing the input, calculating a solution and submitting it to the server. It can be found in `solution.py`.
+automates parsing the input, calculating a solution and submitting it to the server. It can be found in `solution.py`.
 
-Calculating the vectors and the rotation matrix `A` are straight forward. The `pyquaternion` library also provides a class to work with quaternions. The class can be initialized with a rotation matrix but in our case it simply errors out with:
+Calculating the vectors and the rotation matrix `A` are straight forward. The `pyquaternion` library provides a class to work with quaternions. The class can be initialized with a rotation matrix but in our case it simply errors out with:
 `ValueError: Matrix must be orthogonal, i.e. its transpose should be its inverse`. Obviously the calculated rotation matrix is not perfect and needs some kind of orthogonalization. All naive tries fail and we go back to the website we used originally to convert the rotation matrix into a quaternion. Somehow it must have done it!
 
 Studying the websites source leads us to an implementation in [three.js](https://github.com/mrdoob/three.js/blob/dev/src/math/Quaternion.js#L319). We also discover a general description of the [problem](http://www.euclideanspace.com/maths/geometry/rotations/conversions/matrixToQuaternion/index.htm). Given these resources it is easy to construct a function which takes a rotation matrix and outputs the `x,y,z,w` components of a corresponding quaternion.
 
-We supply the resulting quaternions to the challenge server but it is not happy and says `Invalid vector, Make sure to normalize`. Obviously some normalization is needed and thankfully the `Quaternion` class from `pyquaternion` offers such a function: `q = Quaternion(qw, qx, qy, qz).normalised`.
+We supply the resulting quaternion to the challenge server but it is not happy and says `Invalid vector, Make sure to normalize`. Obviously some normalization is needed and thankfully the `Quaternion` class from `pyquaternion` offers such a function: `q = Quaternion(qw, qx, qy, qz).normalised`.
 
 The server is now happy with the quaternion in general but our solution for the second round is not accepted. We start wondering what could be the cause. We ponder the following possibilities:
- - We have to average with the previous result
- - We have to average multiple observations into a single vector
- - We should try a different subset of vectors (currently we only use three) from provided data.
+ - Maybe we have to average with the previous result.
+ - Maybe we have to average multiple observations into a single vector.
+ - Maybe we should try a different subset of vectors (currently we use the first three) from provided data.
+ - Maybe the star catalog is not 0 indexed but 1 indexed.
 
- Sadly none of these ideas lead anywhere and it looks like we are stuck.
+Sadly none of these ideas lead anywhere and it looks like we are stuck.
 
 We start investigating other solutions and the "Singular Value Decomposition (SVD) Method" described in [How to Estimate Attitude from Vector Observations](https://ntrs.nasa.gov/archive/nasa/casi.ntrs.nasa.gov/19990104598.pdf) seems to be suitable.
 
-This solution takes multiple (at least two) pairs of vectors (bi from the observations and ri from the catalog),
-combines them into a matrix B and then uses a [Singular Value Decomposition](https://en.wikipedia.org/wiki/Singular_value_decomposition) to calculate the optimal rotation matrix A which translates between bi and ri. This solution has two advantages:
- - It can consume all provided observations. We do not need to worry about selecting a subset.
+This solution takes multiple (at least two) pairs of vectors (`bi` from the observations and `ri` from the catalog),
+combines them into a matrix `B`. It then uses
+a [Singular Value Decomposition](https://en.wikipedia.org/wiki/Singular_value_decomposition) to calculate
+the optimal rotation matrix `A` which translates between `bi` and `ri`. This solution has three advantages:
+ - It can consume all provided observations. We don't need to worry about selecting a subset.
  - It can optionally incorporate a weight for each vector pair. We think that the stars magnitude might be a good candidate for that (assuming that brighter stars can be located more accurately).
  - It uses an SVD at its center which is directly accessible from Pythons `numpy` library.
 
-We start to prototype this solution and end up with this at its core:
+We start to prototype a solution and end up with this at its core:
 ```Python
 B = np.array([[0.,0.,0.],[0.,0.,0.],[0.,0.,0.]])
 for obs in yArrays[:2]:
@@ -221,7 +224,7 @@ print(f"Attitude: (x:{q.x}, y:{q.y}, z:{q.z}, w:{q.w})")
 ```
 
 To our delight this gets us past round 2. We quickly automate this into `solution.py` and soon after
-the scripts runs trough all rounds and we get presented with a flag:
+the script runs through all rounds and we get rewarded with a flag:
 ```
 ======== Receiving 4096B ========
 << b'0 Left...'
@@ -231,10 +234,10 @@ the scripts runs trough all rounds and we get presented with a flag:
 
 ## Improved solution
 
-After finishing the CtF we had another look at the solution to this problem. While the SVD based approach worked, we were still wondering why the `TRIAD` algorithm did not work. We were also wondering if all the normalization and special conversion from the rotation matrix to the quaternion were still needed.
+After finishing the CtF we had another look at our solution to this problem. While the SVD based approach worked, we were still wondering why the `TRIAD` algorithm did not work. We were also wondering if the special conversion from the rotation matrix to the quaternion and the normalization of the resulting quaternion were still needed.
 
 ### TRIAD
-After reading the paper explaining the `TRIAD` algorithm again it became clear that we were missing a crucial step before creating the two triads of vectors. The paper details how to pick two sets of two vectors and then use these sets to generate two new sets of three vectors each. These new sets can then be used to perfom the computation:
+After reading the paper explaining the `TRIAD` algorithm again it became clear that we were missing a crucial step before creating the two triads of vectors. The paper details how to pick two sets of two vectors and then use these sets to generate two new sets of three vectors each. These new sets can then be used to perform the computation:
 
 ![TRIAD algorithm](triad-2.png)
 
@@ -267,17 +270,20 @@ q = Quaternion(qw, qx, qy, qz).normalised
 ```
 
 ### SVD
-Poking around some more we realize that:
+Poking around some more we realized that:
  - The SVD produces an orthogonal rotation matrix which can be directly used (`q = Quaternion(matrix=A)`).
  - The resulting quaternion is already normalized (no need to use `q.normalised`).
- - The stars magnitude can be ignored
- - Python3 has a much nicer notation for matrix multiplication
- - Numpy offers some nice helper functions to create the used matrices
+ - The stars magnitude can be ignored.
+ - Python3 has a much nicer notation for matrix multiplication.
+ - numpy offers some nice helper functions to create the used matrices.
+ - scipy offers a way to convert from a rotation matrix to a quaternion.
 
-This leads to our cleaned up solution (found as well in `solution_improved.py`):
+This lead to our cleaned up solution (found as well in `solution_improved.py`):
 ```Python
+from scipy.spatial.transform import Rotation as R
+
 B = np.zeros((3,3))
-# First three observations are actually enough
+# First two observations are actually enough
 for obs in observations:
     star_id = obs[0]
     obs = np.array([float(f) for f in obs[1:]])
@@ -296,9 +302,8 @@ u, s, vh = np.linalg.svd(B, full_matrices=True)
 C = np.diag([1, 1, np.linalg.det(u) * np.linalg.det(vh)])
 A = u @ C @ vh
 
-# A is an orthogonal rotation matrix and translates nicely into a normalized quaternion
-q = Quaternion(matrix=A)
-print(f"Attitude: (x:{q.x}, y:{q.y}, z:{q.z}, w:{q.w})")
+q = R.from_matrix(A).as_quat()
+print(f"Attitude: (x:{q[0]}, y:{q[1]}, z:{q[2]}, w:{q[3]})")
 ```
 
 # Additional resources

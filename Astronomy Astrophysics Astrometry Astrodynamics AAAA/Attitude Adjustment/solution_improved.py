@@ -5,9 +5,8 @@ import os
 
 import nclib
 import numpy as np
-from pyquaternion import Quaternion
+from scipy.spatial.transform import Rotation as R
 
-from quat import quat
 
 def solveArrays(catalog, observations):
     """
@@ -36,15 +35,13 @@ def solveArrays(catalog, observations):
     r3 = np.cross(r1, r2) / np.linalg.norm(np.cross(r1, r2))
 
     A = b1*r1.T + b3*r3.T + np.cross(b1, b3) * np.cross(r1, r3).T
-
-    qx, qy, qz, qw = quat(A)
-    q = Quaternion(qw, qx, qy, qz).normalised
     """
 
+    #"""
     # Based on https://ntrs.nasa.gov/archive/nasa/casi.ntrs.nasa.gov/19990104598.pdf
     # Slides 1 and 4
     B = np.zeros((3,3))
-    # First three observations are actually enough
+    # First two observations are actually enough
     for obs in observations:
         star_id = obs[0]
         obs = np.array([float(f) for f in obs[1:]])
@@ -62,11 +59,10 @@ def solveArrays(catalog, observations):
     u, s, vh = np.linalg.svd(B, full_matrices=True)
     C = np.diag([1, 1, np.linalg.det(u) * np.linalg.det(vh)])
     A = u @ C @ vh
+    #"""
 
-    # A is an orthogonal rotation matrix and translates nicely into a normalized quaternion
-    q = Quaternion(matrix=A)
-
-    print(f"Attitude: (x:{q.x}, y:{q.y}, z:{q.z}, w:{q.w})")
+    q = R.from_matrix(A).as_quat()
+    print(f"Attitude: (x:{q[0]}, y:{q[1]}, z:{q[2]}, w:{q[3]})")
     return q
 
 if __name__ == '__main__':
@@ -96,7 +92,7 @@ if __name__ == '__main__':
 
     for x in range(0,20):
         q=solveArrays(catalog, observations)
-        sendInput = "%f,%f,%f,%f" %(q.x, q.y, q.z, q.w)
+        sendInput = "%f,%f,%f,%f" %(q[0], q[1], q[2], q[3])
         nc.send(bytes(sendInput,'utf-8')+b'\n')
         outBuf=nc.recv()
         observations = []
