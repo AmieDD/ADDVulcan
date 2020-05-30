@@ -220,6 +220,15 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "mossmann",
+      "name": "Michael Ossmann",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/1195107?v=4",
+      "profile": "http://greatscottgadgets.com/",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
