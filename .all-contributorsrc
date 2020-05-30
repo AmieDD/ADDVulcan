@@ -229,6 +229,15 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "straithe",
+      "name": "Straithe",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/5331861?v=4",
+      "profile": "http://straithe.com",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
