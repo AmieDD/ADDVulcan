@@ -59,7 +59,7 @@ Your team's flag for this challenge will look something like flag{charlie47226al
 # Writeup by schneider
 
 ## Initial solution
-We have a look at the star catalog in the `test.txt` file from the `Files` section of the challenge. It contains 2500 lines containing 4 numbers each:
+We have a look at the star catalog in `test.txt` from the `Files` section of the challenge. It contains 2500 lines containing 4 numbers each:
 ```
 0.07002547605232286,	0.11013923822791234,	0.9914463076265002,	549.9163822901205
 -0.343541169379814,	0.8721600435864687,	0.34830492863638757,	549.8552449937595
@@ -117,7 +117,7 @@ An illustration of whats going on:
 ![Mapping CT vectors to ST vectors](image0.jpg)
 
 The vectors from the catalog correspond to stars in the ST reference frame. The observations from the
-star tracker are from a rotated reference frame which represents the rotation (or attitude) of the
+star tracker are from a rotated CT reference frame which represents the rotation (or attitude) of the
 satellite. Note: Even though the origin of the reference frame of the satellite does not share its
 origin with the reference frame of the catalog, the vectors match up due to the huge distance to the
 observed stars.
@@ -183,8 +183,9 @@ The server is now happy with the quaternion in general but our solution for the 
  - We have to average with the previous result
  - We have to average multiple observations into a single vector
  - We should try a different subset of vectors (currently we only use three) from provided data.
+ - Maybe the star catalog is not 0 indexed but 1 indexed
 
- Sadly none of these ideas lead anywhere and it looks like we are stuck.
+Sadly none of these ideas lead anywhere and it looks like we are stuck.
 
 We start investigating other solutions and the "Singular Value Decomposition (SVD) Method" described in [How to Estimate Attitude from Vector Observations](https://ntrs.nasa.gov/archive/nasa/casi.ntrs.nasa.gov/19990104598.pdf) seems to be suitable.
 
