@@ -1,6 +1,6 @@
 # ADDVulcan
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-32-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-33-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 [**HackaSat Challenges**](https://www.hackasat.com/)
 
@@ -115,6 +115,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/Rotbot9k"><img src="https://avatars3.githubusercontent.com/u/353663?v=4" width="100px;" alt=""/><br /><sub><b>Clayton </b></sub></a><br /><a href="https://github.com/AmieDD/ADDVulcan/commits?author=Rotbot9k" title="Code">💻</a></td>
     <td align="center"><a href="http://destevez.net"><img src="https://avatars0.githubusercontent.com/u/15093841?v=4" width="100px;" alt=""/><br /><sub><b>Daniel Estévez</b></sub></a><br /><a href="https://github.com/AmieDD/ADDVulcan/commits?author=daniestevez" title="Code">💻</a></td>
     <td align="center"><a href="https://dominicspill.com"><img src="https://avatars3.githubusercontent.com/u/91747?v=4" width="100px;" alt=""/><br /><sub><b>Dominic Spill</b></sub></a><br /><a href="https://github.com/AmieDD/ADDVulcan/commits?author=dominicgs" title="Code">💻</a></td>
+    <td align="center"><a href="https://www.x1sys.com"><img src="https://avatars0.githubusercontent.com/u/61330485?v=4" width="100px;" alt=""/><br /><sub><b>negative_alpha</b></sub></a><br /><a href="https://github.com/AmieDD/ADDVulcan/commits?author=negative-alpha" title="Code">💻</a></td>
   </tr>
 </table>
 
