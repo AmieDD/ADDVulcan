@@ -238,6 +238,15 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "Sec42",
+      "name": "Sec",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/464856?v=4",
+      "profile": "http://blogmal.42.org",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
