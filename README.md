@@ -1,6 +1,6 @@
 # ADDVulcan
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-27-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-28-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 [**HackaSat Challenges**](https://www.hackasat.com/)
 
@@ -108,6 +108,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="http://greatscottgadgets.com/"><img src="https://avatars2.githubusercontent.com/u/1195107?v=4" width="100px;" alt=""/><br /><sub><b>Michael Ossmann</b></sub></a><br /><a href="https://github.com/AmieDD/ADDVulcan/commits?author=mossmann" title="Code">💻</a></td>
     <td align="center"><a href="http://straithe.com"><img src="https://avatars3.githubusercontent.com/u/5331861?v=4" width="100px;" alt=""/><br /><sub><b>Straithe</b></sub></a><br /><a href="https://github.com/AmieDD/ADDVulcan/commits?author=straithe" title="Code">💻</a></td>
     <td align="center"><a href="http://blogmal.42.org"><img src="https://avatars1.githubusercontent.com/u/464856?v=4" width="100px;" alt=""/><br /><sub><b>Sec</b></sub></a><br /><a href="https://github.com/AmieDD/ADDVulcan/commits?author=Sec42" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/gregdavill"><img src="https://avatars2.githubusercontent.com/u/344310?v=4" width="100px;" alt=""/><br /><sub><b>Gregory Davill</b></sub></a><br /><a href="https://github.com/AmieDD/ADDVulcan/commits?author=gregdavill" title="Code">💻</a></td>
   </tr>
 </table>
 
