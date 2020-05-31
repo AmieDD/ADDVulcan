@@ -16,7 +16,7 @@ The last over-the-space update seems to have broken the housekeeping on our sate
 Our satellite's battery is low and is running out of battery fast. 
 We have a short flyover window to transmit a patch or it'll be lost forever. 
 The battery level is critical enough that even the task scheduling server has shutdown. 
-Thankfully can be fixed without without any exploit knowledge by using the built in APIs provied by https://www.kubos.com.
+Thankfully this can be fixed without any exploit knowledge by using the built in APIs provided by https://www.kubos.com.
 Hopefully we can save this one!
 
 Note: When you're done planning, go to low power mode to wait for the next transmission window
@@ -89,12 +89,12 @@ Upon connection we immediately noticed a few things:
 
 We connected to `3.19.141.137:17501/tel/graphiql` and got a query/response interface for GraphiQL...
 
-OSINT time... 
+OSINT time...\
 The team started searching on [kubOS](https://docs.kubos.com/)' telemetry operations: [https://docs.kubos.com/1.21.0/tutorials/querying-telemetry.html](https://docs.kubos.com/1.21.0/tutorials/querying-telemetry.html)
 
 We started playing with various commands and learning to change various telemetry values - during this time we noticed that the telemetry server had time window and we were timing out - so we had to be quick.
 
-It took a quite a bit of tries to get comfortable with the command syntax - our first goal was to be able to query a specific telemetry parameter in this case VIDIODE...
+It took a quite a few tries to get comfortable with the command syntax - our first goal was to be able to query a specific telemetry parameter in this case VIDIODE...
 
 First we found this example:
 
@@ -119,13 +119,13 @@ Not much there, then we queried the Electrical Power System (EPS):
 
 ![EPS query](images/pl_spdb_eps_vidiode.PNG)
 
-It gave us bunch of values, but it was not clear initial which one(s) we needed to tweak to make the system function the way needed...
+It gave us bunch of values, but it was not clear initially which one(s) we needed to tweak to make the system function the way needed...
 
 
 Still we needed to understand the power systems that impacted the EPS subsystem - Google to the rescue:
 we found a book on [Hyperspectral Satellites and System Design](https://books.google.com/books?id=5VraDwAAQBAJ&pg=PA217&lpg=PA217&dq=PDM+voltage+solar&source=bl&ots=F8XaPLB6HQ&sig=ACfU3U1AnD8CORH5faMJ1jrHuX6JrBeW6Q&hl=en&sa=X&ved=2ahUKEwjzlM3B19zpAhXvGDQIHVu6Du8Q6AEwBXoECBsQAQ#v=onepage&q=PDM%20voltage%20solar&f=false) by Shen-En Qian
 
-Page 216 - Section 4.5.7.4 had some dicussion on the Power Subsystem - and we noticed a discussion on the Battery Control Module (BCM) (see below) and got some inspiration.
+Page 216 - Section 4.5.7.4 had some discussion on the Power Subsystem - and we noticed a discussion on the Battery Control Module (BCM) (see below) and got some inspiration.
 
 ![Page 216 - Section 4.5.7.4](images/pl_spdb_google_books_bcm_discovery.PNG)
 
