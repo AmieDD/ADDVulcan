@@ -98,11 +98,26 @@ It took a quite a bit of tries to get comfortable with the command syntax - our 
 
 First we found this example:
 
-![Query EPS](./images/pl_spdb_eps_vidiode.PNG)
+```
+query {
+    telemetry(timestampGe: Float, timestampLe: Float, subsystem: String, parameter: String, parameters: [String], limit: Integer): [{
+        timestamp: Float!
+        subsystem: String!
+        parameter: String!
+        value: String!
+    }]
+}
+```
 
-We learned how to query the system and given that our initial target was VIDIODE - we issued the following query:
 
-![Vidiode query](images/pl_spdb_eps_vidiode.PNG)
+
+We learned how to query the system and given that our initial target was VIDIODE - we issued the following query to directly get the VIDIODE parameter value:
+
+![Vidiode query](images/pl_spdb_direct_vidiode_query.PNG)
+
+Not much there, then we queried the Electrical Power System (EPS):
+
+![EPS query](images/pl_spdb_eps_vidiode.PNG)
 
 It gave us bunch of values, but it was not clear initial which one(s) we needed to tweak to make the system function the way needed...
 
@@ -142,7 +157,7 @@ Solar panels charge the batteries, BCR controls the voltage - we have low voltag
 }
 ```
 
-And we found four BCR voltage values (BCR_1_VOLTAGE,BCR_2_VOLTAGE,BCR_3_VOLTAGE,BCR_4_VOLTAGE):
+And we found four BCR voltage values (BCR_1_VOLTAGE, BCR_2_VOLTAGE, BCR_3_VOLTAGE, BCR_4_VOLTAGE):
 
 ![BCR Params](images/pl_spdb_bcr_parameters.PNG)
 
@@ -243,7 +258,7 @@ mutation {
 }
 ```
 
-3. Active the `low power` mode
+3. Activate the `low power` mode
 
 ```
 mutation {
@@ -251,7 +266,7 @@ mutation {
 }
 ```
 
-4. Active the `transmission` mode
+4. Activate the `transmission` mode
 
 ```
 mutation {
