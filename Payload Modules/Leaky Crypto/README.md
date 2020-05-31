@@ -75,7 +75,7 @@ Describing all of the inner workings of the AES is beyond the scope of this writ
 |PT[12] ⊕ K[12]|PT[13] ⊕ K[13]|PT[14] ⊕ K[14]|PT[15] ⊕ K[15]|
 
 
-The basic idea behind the attack is that when we first perform T0[ PT[0] ⊕ K[0] ], part of the table T0 will be loaded into the cache. Afterwards, when we perform T0[ PT[4] ⊕ K[4] ] we might observe a cache hit if PT[4] ⊕ K[4] is the same as (or close to) PT[0] ⊕ K[0]. If PT[4] ⊕ K[4] is not equal to PT[0] ⊕ K[0] it will take longer to perform the table lookup. In other words, if there is a collision between PT[0] ⊕ K[0] and PT[4] ⊕ K[4] the table lookup will be faster resulting in timing side-channel leakage.
+The basic idea behind the attack is that when the table lookup T0[ PT[0] ⊕ K[0] ] is performed, part of the table T0 will be loaded into the cache. Afterwards, when we perform T0[ PT[4] ⊕ K[4] ] we might observe a cache hit if PT[4] ⊕ K[4] is the same as (or close to) PT[0] ⊕ K[0]. If PT[4] ⊕ K[4] is not equal to PT[0] ⊕ K[0] it will take longer to perform the table lookup. In other words, if there is a collision between PT[0] ⊕ K[0] and PT[4] ⊕ K[4] the table lookup will be faster resulting in timing side-channel leakage.
 
 ### Exploiting the timing leakage
 As part of the challenge description we received the first 6 bytes of the key. We can use the known value for key byte 0 to try and recover key byte 4 and verify that it matches with the provided value for key byte 4.
@@ -107,7 +107,7 @@ Similarly we can retrieve candidates for most of the other key bytes:
 |14|0x68, 0x69, 0x6B, 0x6A|
 |15|0x5E, 0x5C, 0x5D, 0x5F|
 
-For more details on how these key bytes were recovered and the full implementation you can look at the provided Python [notebook](./leaky-crypto.ipynb)
+For more details on how these key bytes were recovered and the full implementation you can look at the provided Python [notebook](./leaky-crypto.ipynb). It's not completely clear to my why collisions between certain bytes resulted in successful key byte recovery.
 
 At this point the remaining key space could be brute forced using a known plaintext ciphertext pair which was provided as part of the challenge in the form of the encrypted flag and the flag structure.
 The recovered key was `97ca6080f575e646e557f755bf15685e` and the resulting decrypted flag was `flag{uniform54349juliet:GL2aGs7ys8ygcW0kFBPLbwEdjLbwNltiPdX_ANqtOFbUpEh_ciY8tWZd4y2VblkUhOl-PxXJdJYK86pIHmmwcw0}`
