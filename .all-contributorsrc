@@ -283,6 +283,15 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "dominicgs",
+      "name": "Dominic Spill",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/91747?v=4",
+      "profile": "https://dominicspill.com",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
