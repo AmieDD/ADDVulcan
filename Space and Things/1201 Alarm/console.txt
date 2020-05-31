@@ -1,0 +1,13 @@
+
+    The rope memory in the Apollo Guidance Computer experienced an unintended 'tangle' just 
+prior to launch. While Buzz Aldrin was messing around with the docking radar and making Neil
+nervous; he noticed the value of PI was slightly off but wasn’t exactly sure by how much. It
+seems that it was changed to something slightly off 3.14 although still 3 point something. 
+The Commanche055 software on the AGC stored the value of PI under the name "PI/16", and 
+although it has always been stored in a list of constants, the exact number of constants in 
+that memory region has changed with time.
+
+    Help Buzz tell ground control the floating point value PI by connecting your DSKY to the
+AGC Commanche055 instance that is listening at 3.15.213.229:11884
+
+What is the floating point value of PI?:
