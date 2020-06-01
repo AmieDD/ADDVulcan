@@ -279,5 +279,25 @@ As we know that we only need to supply 5 matching stars, the simplest solution i
 matching stars. This is implemented in [myspace_improved.py](myspace_improved.py) and is a
 stable solution for this challenge.
 
+Using a bit of numpy also cleans up the code significantly:
+
+```Python
+for i, obs_position in enumerate(obs_positions):
+        # Calculate the angles between this observation and all other observations.
+        # Find the two obervations which have the smallest angle.
+        angels = [angle_between(obs_position, other_obs_pos) for other_obs_pos in obs_positions]
+        closest_obs = np.argsort(angels)[:3]
+
+        # Get the angles as well as the angle between the two closest observations.
+        a1 = angels[closest_obs[1]]
+        a2 = angels[closest_obs[2]]
+        ab = angle_between(obs_positions[closest_obs[1]], obs_positions[closest_obs[2]])
+
+        print(f"Two closest observations next to observation {i} are {closest_obs[1]} and {closest_obs[2]}")
+        index, error = stars_improved.find_by_angles(a1, a2, ab)
+        print(f"Matched star from catalog: {index} (Error: {error:.6})")
+        matches.append((index, error))
+```
+
 During this investigation we also realize that the challenge accepts at most 1 wrong index inside the
 provided list of stars.
