@@ -65,6 +65,8 @@
 - [data.nasa.gov](https://data.nasa.gov) - Continually growing catalog of publicly available NASA datasets, APIs, visualizations, and more
 - [images.nasa.gov](https://images.nasa.gov) - Search NASA's informational image and video archive
 - MAST - A NASA-funded site that provides astronomical data archives focused on scientific data sets in the optical, ultraviolet, and near-IR.
+- [Astropy](https://www.astropy.org/)
+- [Astrokit](https://github.com/typpo/astrokit)
 
 ## Contributors ✨
 
