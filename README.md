@@ -12,7 +12,7 @@
 
 ### [Astronomy, Astrophysics, Astrometry, Astrodynamics, AAAA](https://github.com/AmieDD/ADDVulcan/tree/master/Astronomy%20Astrophysics%20Astrometry%20Astrodynamics%20AAAA)
 
-- [I Like to Watch Hot stuff!](https://github.com/AmieDD/ADDVulcan/tree/master/Astronomy%20Astrophysics%20Astrometry%20Astrodynamics%20AAAA/I%20Like%20to%20Watch)
+- [I Like to Watch](https://github.com/AmieDD/ADDVulcan/tree/master/Astronomy%20Astrophysics%20Astrometry%20Astrodynamics%20AAAA/I%20Like%20to%20Watch)
 - [Attitude Adjustment](https://github.com/AmieDD/ADDVulcan/tree/master/Astronomy%20Astrophysics%20Astrometry%20Astrodynamics%20AAAA/Attitude%20Adjustment)
 - [Seeing Stars](https://github.com/AmieDD/ADDVulcan/tree/master/Astronomy%20Astrophysics%20Astrometry%20Astrodynamics%20AAAA/Seeing%20Stars)
 - [Digital Filters, Meh](https://github.com/AmieDD/ADDVulcan/tree/master/Astronomy%20Astrophysics%20Astrometry%20Astrodynamics%20AAAA/Digital%20Filters%2C%20Me)
