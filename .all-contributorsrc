@@ -310,6 +310,15 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "colinoflynn",
+      "name": "Colin O'Flynn",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/6100154?v=4",
+      "profile": "http://www.oflynn.com",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
