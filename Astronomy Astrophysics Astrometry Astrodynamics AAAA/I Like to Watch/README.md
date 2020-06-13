@@ -4,6 +4,8 @@
 
 ![](https://media.giphy.com/media/7jeOTMdLRDJ3q/giphy.gif)
 
+*37 points, 128 solves*
+
 Active ADDVulcan players:
 
 - miek
