@@ -22,3 +22,5 @@ Using netcat, you might run
 nc apollo.satellitesabove.me 5024
 ```
 ### Solving
+
+Your team's flag for this challenge will look something like ```flag{golf97715papa:___a bunch of unguessable stuff___}``` .
