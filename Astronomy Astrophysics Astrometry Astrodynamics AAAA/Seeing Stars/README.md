@@ -25,19 +25,29 @@ Note that top left corner is (0,0).
 ## Ticket
 
 Present this ticket when connecting to the challenge:
-`ticket{victor624juliet:GLokOngLOluXVb4dQizz9cmvj8s-3UVmrjWWG0sb8v19OKnXs8ZCc4El6KqEDs8byQ}`
+```
+ticket{victor624juliet:GLokOngLOluXVb4dQizz9cmvj8s-3UVmrjWWG0sb8v19OKnXs8ZCc4El6KqEDs8byQ}
+```
 
 Don't share your ticket with other teams. 
 
 ## Connecting
 
-Connect to the challenge on `stars.satellitesabove.me:5013`.
-Using netcat, you might run `nc stars.satellitesabove.me 5013`.
+Connect to the challenge on 
+```
+stars.satellitesabove.me:5013
+```
+Using netcat, you might run 
+```
+nc stars.satellitesabove.me 5013
+```
 
 ## Solving
 
 Your team's flag for this challenge will look something like
-`flag{victor624juliet:___a bunch of unguessable stuff___}`.
+```
+flag{victor624juliet:___a bunch of unguessable stuff___}
+```
 
 # Writeup by kandi3kan3
 
