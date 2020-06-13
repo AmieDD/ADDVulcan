@@ -69,14 +69,81 @@ As the title suggests, this cache-timing side-channel attack relies on a collisi
 
 ## How it works
 
-Describing all of the inner workings of the AES is beyond the scope of this writeup, but plenty of resources are available online. 
+### AES Background
+
+Describing all of the inner workings of the AES is beyond the scope of this writeup, but plenty of resources are available online. A short introduction to AES is provided for completeness, see the following links for more details:
 https://en.wikipedia.org/wiki/Advanced_Encryption_Standard
 https://www.youtube.com/watch?v=O4xNJsjtN6E 
 https://www.esat.kuleuven.be/cosic/blog/co6gc-aes/
 
-However, to understand the attack it is important to know that this specific implementation uses four lookup tables, often referred to as T-tables. Each of these tables is used for one column of the AES state.
+AES performs a number of operations on a 16-byte input data using a 16-byte key (for AES-128). A simple pseudo-implementation could look something like this:
 
-| T0    | T1    | T2    | T3   |
+```C
+encrypt(uint8_t plaintext[16], uint8_t key[16], uint8_t ciphertext[16])
+{
+    uint8_t state[16];
+
+    //Initial AddRoundKey
+    for (int i = 0; i < 16; i++){
+        state[i] = plaintext[i] ^ key[i];
+    }
+    
+    //AES Rounds
+    for (int round = 1; round <= 10; round++){
+        
+        //Subbytes
+        for (int i = 0; i < 16; i++){
+            state[i] = sbox[state[i]];
+        }
+        
+        ShiftRows(state);
+        if (round != 10) { //Final round has no mix-columns
+            MixColumns(state);
+        }
+        AddRoundKey(state, round);
+    }
+    
+    //Copy to output AddRoundKey
+    for (int i = 0; i < 16; i++){
+        ciphertext[i] = state[i];
+    }
+}
+```
+
+This classic implementation involves single-byte operations, which will not be an efficient use of 32-bit controllers. Thus a more common implementation is one that uses "T-Tables" where the target microcontroller is a 32-bit (or higher) architecture. The T-Table description is present in the original AES description.
+
+### T-Table Implementation
+
+T-Tables allow us to effectively run an entire round of AES as a series of lookups. Taking an example from [MBED-TLS, you can see a macro called AES_FROUND](https://github.com/newaetech/chipwhisperer/blob/develop/hardware/victims/firmware/crypto/mbedtls/library/aes.c#L670) that implements a round of AES, replacing effectively all the operations inside the loop:
+
+```C
+#define AES_FROUND(X0,X1,X2,X3,Y0,Y1,Y2,Y3)     \
+{                                               \
+    X0 = *RK++ ^ FT0[ ( Y0       ) & 0xFF ] ^   \
+                 FT1[ ( Y1 >>  8 ) & 0xFF ] ^   \
+                 FT2[ ( Y2 >> 16 ) & 0xFF ] ^   \
+                 FT3[ ( Y3 >> 24 ) & 0xFF ];    \
+                                                \
+    X1 = *RK++ ^ FT0[ ( Y1       ) & 0xFF ] ^   \
+                 FT1[ ( Y2 >>  8 ) & 0xFF ] ^   \
+                 FT2[ ( Y3 >> 16 ) & 0xFF ] ^   \
+                 FT3[ ( Y0 >> 24 ) & 0xFF ];    \
+                                                \
+    X2 = *RK++ ^ FT0[ ( Y2       ) & 0xFF ] ^   \
+                 FT1[ ( Y3 >>  8 ) & 0xFF ] ^   \
+                 FT2[ ( Y0 >> 16 ) & 0xFF ] ^   \
+                 FT3[ ( Y1 >> 24 ) & 0xFF ];    \
+                                                \
+    X3 = *RK++ ^ FT0[ ( Y3       ) & 0xFF ] ^   \
+                 FT1[ ( Y0 >>  8 ) & 0xFF ] ^   \
+                 FT2[ ( Y1 >> 16 ) & 0xFF ] ^   \
+                 FT3[ ( Y2 >> 24 ) & 0xFF ];    \
+}
+```
+
+Each of these tables is used for one column of the AES state. Note above how `FT0` is always used for the first column for example. In the previous code block, `FT` stands for `Forward T-Table`. The possible inputs to each table is shown below:
+
+| FT0    | FT1    | FT2    | FT3   |
 |-------------|-------------|-------------|-------------|
 |PT[0] ⊕ K[0]|PT[1] ⊕ K[1]|PT[2] ⊕ K[2]|PT[3] ⊕ K[3]|
 |PT[4] ⊕ K[4]|PT[5] ⊕ K[5]|PT[6] ⊕ K[6]|PT[7] ⊕ K[7]|
@@ -84,9 +151,48 @@ However, to understand the attack it is important to know that this specific imp
 |PT[12] ⊕ K[12]|PT[13] ⊕ K[13]|PT[14] ⊕ K[14]|PT[15] ⊕ K[15]|
 
 
-The basic idea behind the attack is that when the table lookup T0[ PT[0] ⊕ K[0] ] is performed, part of the table T0 will be loaded into the cache. Afterwards, when we perform T0[ PT[4] ⊕ K[4] ] we might observe a cache hit if PT[4] ⊕ K[4] is the same as (or close to) PT[0] ⊕ K[0]. If PT[4] ⊕ K[4] is not equal to PT[0] ⊕ K[0] it will take longer to perform the table lookup. In other words, if there is a collision between PT[0] ⊕ K[0] and PT[4] ⊕ K[4] the table lookup will be faster resulting in timing side-channel leakage.
+### Cached T-Table & Timing Dependancy
 
-### Exploiting the timing leakage
+The basic idea behind the attack is that when the table lookup FT0[ PT[0] ⊕ K[0] ] is performed, part of the table FT0 will be loaded into the cache. Afterwards, when we perform FT0[ PT[4] ⊕ K[4] ] we might observe a cache hit if PT[4] ⊕ K[4] is the same as (or close to) PT[0] ⊕ K[0]. If PT[4] ⊕ K[4] is not equal to PT[0] ⊕ K[0] it will take longer to perform the table lookup. In other words, if there is a collision between PT[0] ⊕ K[0] and PT[4] ⊕ K[4] the table lookup will be faster resulting in timing side-channel leakage.
+
+### T-Table Pseudocode
+
+If helpful to better understand the T-Table implementation, the following pseduo-code is created to show the implementation for the first round only. By inserting into the previous code a new variable called `INPUT`, where INPUT[N] = PT[N] ⊕ K[N] we have the following:
+
+```C
+    X0 = *RK++ ^ FT0[ ( INPUT[0] ) ] ^   \
+                 FT1[ ( INPUT[5] ) ] ^   \
+                 FT2[ ( INPUT[10]) ] ^   \
+                 FT3[ ( INPUT[15]) ];    \
+                                                \
+    X1 = *RK++ ^ FT0[ ( INPUT[4] ) ] ^   \
+                 FT1[ ( INPUT[9] ) ] ^   \
+                 FT2[ ( INPUT[14]) ] ^   \
+                 FT3[ ( INPUT[3] ) ];    \
+                                                \
+    X2 = *RK++ ^ FT0[ ( INPUT[8] ) ] ^   \
+                 FT1[ ( INPUT[13]) ] ^   \
+                 FT2[ ( INPUT[2] ) ] ^   \
+                 FT3[ ( INPUT[7] ) ];    \
+                                                \
+    X3 = *RK++ ^ FT0[ ( INPUT[12]) ] ^   \
+                 FT1[ ( INPUT[1] ) ] ^   \
+                 FT2[ ( INPUT[6] ) ] ^   \
+                 FT3[ ( INPUT[11]) ];    \
+```
+
+The following shows the order of access to PT & Key bytes for each table:
+
+```
+X0: FT0{ 0} ^ FT1{ 5} ^ FT2{10} ^ FT3{15}
+X1: FT0{ 4} ^ FT1{ 9} ^ FT2{14} ^ FT3{ 3}
+X2: FT0{ 8} ^ FT1{13} ^ FT2{ 2} ^ FT3{ 7}
+X3: FT0{12} ^ FT1{ 1} ^ FT2{ 6} ^ FT3{11}
+```
+
+Note reading down each column matches the table above, but some of the columns are in different orders. This ordering will make an additional leakage apparent (but not explained).
+
+## Exploiting the timing leakage
 As part of the challenge description we received the first 6 bytes of the key. We can use the known value for key byte 0 to try and recover key byte 4 and verify that it matches with the provided value for key byte 4.
 
 For each of the provided measurements we can compute the correct value of PT[0] ⊕ K[0]. We calculate PT[4] ⊕ K[4] for all of the 256 possible values of K[4]. For each of the key guesses we can average the timing measurements for which the value of PT[0] ⊕ K[0] is equal to PT[4] ⊕ K[4], as well as average the time for all other measurements. For a few of the key guesses we expect to see a bigger difference between both of these averages, these will be our candidates for key byte 4. 
@@ -116,8 +222,28 @@ Similarly we can retrieve candidates for most of the other key bytes:
 |14|0x68, 0x69, 0x6B, 0x6A|
 |15|0x5E, 0x5C, 0x5D, 0x5F|
 
-For more details on how these key bytes were recovered and the full implementation you can look at the provided Python [notebook](./leaky-crypto.ipynb). It's not completely clear to my why collisions between certain bytes resulted in successful key byte recovery.
+Collisions were run across all possible bytes as well, not just those that would be expected based on `FTn` tables. Implementations of T-Tables will vary, including use of a single T-Table for example.
 
-At this point the remaining key space could be brute forced using a known plaintext ciphertext pair which was provided as part of the challenge in the form of the encrypted flag and the flag structure.
+For example using byte 5 resulted in useful candidates for byte 12, which is not expected as byte 5 uses `FT1` and byte 12 uses `FT0`. Visually it can be seen from the previous code listing that a pattern appears for the generation of X0 leaking information about X3: Byte 5 leaks Byte 12, Byte 10 leaks byte 1, and Byte 15 leaks byte 6.
+
+## Brute Forcing
+
+At this point the remaining key space could be brute forced using a known plaintext/ciphertext pair which was provided as part of the challenge in the form of the encrypted flag and the flag structure.
+
+This is done using a number of partial candidate arrays (defined above), where the one fully unknown array `_11` is just all possibilities (`range(0,256)`).
+
+```Python
+for i in itertools.product(_6,_7,_8,_9,_10,_11,_12,_13,_14,_15):
+    key = aes_key_prefix + bytearray(i)
+    cipher = AES.new(key, AES.MODE_ECB)
+    pt = cipher.decrypt(ct_bf)
+    if pt == b'flag{uniform5434':
+        print('Key recovered:', key.hex())
+        break
+```
+
 The recovered key was `97ca6080f575e646e557f755bf15685e` and the resulting decrypted flag was `flag{uniform54349juliet:GL2aGs7ys8ygcW0kFBPLbwEdjLbwNltiPdX_ANqtOFbUpEh_ciY8tWZd4y2VblkUhOl-PxXJdJYK86pIHmmwcw0}`
 
+## Full Attack
+
+For more details on how these key bytes were recovered and the full implementation you can look at the provided Python [notebook](./leaky-crypto.ipynb). You should be able to use a GITHub preview in the previous link, or run this in [Google CoLab](https://colab.research.google.com) if you would like to see this work in real life without installing Jupyter.
