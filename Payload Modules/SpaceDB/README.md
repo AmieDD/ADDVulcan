@@ -87,7 +87,7 @@ Upon connection we immediately noticed a few things:
 4. Position is at GROUNDPOINT
 5. And of course - we needed to connect to the telemetry database at ```3.19.141.137:17501/tel/graphiql```
 
-We connected to `3.19.141.137:17501/tel/graphiql` and got a query/response interface for GraphiQL...
+We connected to `3.19.141.137:17501/tel/graphiql` using the browser and got a query/response interface for GraphiQL...
 
 OSINT time...\
 The team started searching on [kubOS](https://docs.kubos.com/)' telemetry operations: [https://docs.kubos.com/1.21.0/tutorials/querying-telemetry.html](https://docs.kubos.com/1.21.0/tutorials/querying-telemetry.html)
