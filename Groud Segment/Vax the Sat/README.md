@@ -1,7 +1,52 @@
 # Vax the Sat
-- Connect: `nc vax.satellitesabove.me 5035`
-- Ticket: `ticket{foxtrot41690papa:GImHwxb6WA16b1rVdUKJzE2W2UFlPnWZ1P3NXGS97b39Wc6M5_5m6EY3ZUz88BckgQ}`
 
+## Ground Segment
+
+*304 points, 6 solves*
+
+Active ADDVulcan players:
+
+- Bun
+- ameer
+- shipcod3
+- Jigo
+
+# Challenge Description
+
+It's still the 70's in my ground station network, login to it and see if you can get a flag from it.
+
+### Ticket
+
+Present this ticket when connecting to the challenge:
+
+```
+ticket{foxtrot41690papa:___a bunch of unguessable stuff___}
+```
+
+Don't share your ticket with other teams.
+
+### Connecting
+
+Connect to the challenge on
+```
+vax.satellitesabove.me:5035
+```
+
+Using netcat, you might run
+```
+nc vax.satellitesabove.me 5035
+```
+
+### Files
+
+You'll need these files to solve the challenge.
+
+[Download Files](https://generated.2020.hackasat.com/vaxthesat/vaxthesat-foxtrot41690papa.tar.bz2)
+[Download Files](https://static.2020.hackasat.com/2282d39c1d30b59739733d5f0751a2c81e080796/VAXtheSAT.zip)
+
+### Solving
+
+Your team's flag for this challenge will look something like ``` flag{foxtrot41690papa:___a bunch of unguessable stuff___} ``` .
 
 # Solution
 - Login to OpenBSD instance: root : vaxthesat!
