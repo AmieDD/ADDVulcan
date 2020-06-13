@@ -48,6 +48,9 @@ You'll need these files to solve the challenge.
 Your team's flag for this challenge will look something like flag{xray47741golf:___a bunch of unguessable stuff___} .
 Flag:
 
+# Writeup
+
+## Initial solution
 
 **Google Colab Notes:**
 https://colab.research.google.com/drive/1vIBky-zlb0A6oIbq8KPLiUirzdiCcU0w#scrollTo=vrxTLVFDwqmy
