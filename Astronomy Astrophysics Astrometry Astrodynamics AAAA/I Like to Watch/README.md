@@ -38,4 +38,3 @@ You'll need these files to solve the challenge.
 ### Solving
 
 Your team's flag for this challenge will look something like flag{whiskey61339xray:___a bunch of unguessable stuff___} .
-Flag:
