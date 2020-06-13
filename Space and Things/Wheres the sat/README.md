@@ -1,10 +1,13 @@
 # Where's the Sat?
+## Space and Things
 
 Let's start with an easy one, I tell you where I'm looking at a satellite, you tell me where to look for it later.
 
 ### Ticket
 Present this ticket when connecting to the challenge:
+```
 ticket{charlie7635alpha:GM_c1iE2BSb8QX02eDAHpWhikpr9BGNZaK30dA0G08vpIf6OC_09sS-_pCwdkjoheg}
+```
 Don't share your ticket with other teams.
 
 ### Connecting
