@@ -1,6 +1,7 @@
 # Digital Filters, Meh
 
 ## Astronomy, Astrophysics, Astrometry, Astrodynamics, AAAA
+*104 points, 37 solves*
 
 Active ADDVulcan players:
 
