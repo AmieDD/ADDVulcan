@@ -19,7 +19,12 @@ Stunned you figured out that first [SDR](https://en.wikipedia.org/wiki/Software-
 
 ## Ticket
 
-...
+Present this ticket when connecting to the challenge:
+```
+ticket{victor25864romeo:___a bunch of unguessable stuff___}
+```
+Don't share your ticket with other teams.
+
 
 ## Solving
 
