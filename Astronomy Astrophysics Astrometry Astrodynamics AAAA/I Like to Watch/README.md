@@ -1,8 +1,18 @@
 # I Like to Watch
 
-Fire up your Google Earth Pro and brush up on your KML tutorials, we're going to make it look at things!
+## Astronomy, Astrophysics, Astrometry, Astrodynamics, AAAA
 
 ![](https://media.giphy.com/media/7jeOTMdLRDJ3q/giphy.gif)
+
+Active ADDVulcan players:
+
+- miek
+- sec
+- schneider
+
+# Challenge Description
+
+Fire up your Google Earth Pro and brush up on your KML tutorials, we're going to make it look at things!
 
 ### Ticket
 
