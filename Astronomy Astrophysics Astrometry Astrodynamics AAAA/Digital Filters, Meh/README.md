@@ -9,9 +9,19 @@ Review the simulation I have running to see if a startracker can still mess with
 Present this ticket when connecting to the challenge:
 ticket{xray47741golf:GNMa5OxcfnF-P8Gdy05txH7MU1hgS4Ziq76v9izFmvvSoVj5Wxkg5N91VzbvZPdXxQ}
 Don't share your ticket with other teams.
-Connecting
 
-Connect to the challenge on filter.satellitesabove.me:5014 . Using netcat, you might run nc filter.satellitesabove.me 5014
+
+### Connecting
+
+Connect to the challenge on 
+```
+filter.satellitesabove.me:5014 
+```
+
+Using netcat, you might run 
+```
+nc filter.satellitesabove.me 5014
+```
 
 ### Files
 
