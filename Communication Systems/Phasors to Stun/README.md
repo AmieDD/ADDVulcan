@@ -2,7 +2,7 @@
 
 ## Communication Systems 
 
-*436 points*
+*62 points, 73 sloves*
 
 
 Active ADDVulcan players:
