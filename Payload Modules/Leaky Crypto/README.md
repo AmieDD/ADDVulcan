@@ -5,6 +5,10 @@
 
 My crypto algorithm runs in constant time, so I'm safe from sidechannel leaks, right?
 
+Active ADDVulcan players:
+
+- Lennert 
+- n0tty
 
 # Challenge Description
 
@@ -51,7 +55,7 @@ various hash values. Please take a look!
 # Writeup by Lennert
 The provided [readme.txt](./readme.txt) contains some interesting information. We know that the flag is encrypted using the Advanced Encryption Standard (AES) with a 16-byte key, employed in the Electronic Code Book (ECB) mode of operation. As the key is not generated randomly we receive the first six bytes of key material as part of the challenge description.
 
-Additionally, we are provided with a list of plaintexts and the time it took to compute the resulting ciphertext. The challenge description hints at the fact that we should exploit the timing information to conduct a side-channel attack.
+Additionally, we are provided with a list of plaintexts and the time it took to compute the resulting ciphertext. The challenge description hints at the fact that we should exploit the timing information to conduct a side-channel attack. Since the challenge only provided plaintext and time pairs it had to be some kind of timing attack. Googling for AES timing side channel attack quickly leads you to cache timing side channel attacks.
 
 
 ## Literature
@@ -65,7 +69,12 @@ As the title suggests, this cache-timing side-channel attack relies on a collisi
 
 ## How it works
 
-Describing all of the inner workings of the AES is beyond the scope of this writeup, but plenty of resources are available online. However, to understand the attack it is important to know that this specific implementation uses four lookup tables, often referred to as T-tables. Each of these tables is used for one column of the AES state.
+Describing all of the inner workings of the AES is beyond the scope of this writeup, but plenty of resources are available online. 
+https://en.wikipedia.org/wiki/Advanced_Encryption_Standard
+https://www.youtube.com/watch?v=O4xNJsjtN6E 
+https://www.esat.kuleuven.be/cosic/blog/co6gc-aes/
+
+However, to understand the attack it is important to know that this specific implementation uses four lookup tables, often referred to as T-tables. Each of these tables is used for one column of the AES state.
 
 | T0    | T1    | T2    | T3   |
 |-------------|-------------|-------------|-------------|
