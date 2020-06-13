@@ -1,5 +1,15 @@
 # Digital Filters, Meh
 
+## Astronomy, Astrophysics, Astrometry, Astrodynamics, AAAA
+
+Active ADDVulcan players:
+
+- amiedd
+- alvaro
+- supersat
+
+# Challenge Description
+
 Included is the simulation code for the attitude control loop for a satellite in orbit. A code reviewer said I made a pretty big mistake that could allow a star tracker to misbehave. Although my code is flawless, I put in some checks to make sure the star tracker can't misbehave anyways.
 
 Review the simulation I have running to see if a startracker can still mess with my filter. Oh, and I'll be giving you the attitude of the physical system as a quaternion, it would be too much work to figure out where a star tracker is oriented from star coordinates, right?
@@ -7,7 +17,11 @@ Review the simulation I have running to see if a startracker can still mess with
 ### Ticket
 
 Present this ticket when connecting to the challenge:
+
+```
 ticket{xray47741golf:GNMa5OxcfnF-P8Gdy05txH7MU1hgS4Ziq76v9izFmvvSoVj5Wxkg5N91VzbvZPdXxQ}
+```
+
 Don't share your ticket with other teams.
 
 
