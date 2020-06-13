@@ -3,6 +3,7 @@
 ## Space Cadets
 
 ![](https://media.giphy.com/media/11S00bVViOB6a4/giphy.gif)
+
 *5 points, 1275 solves*
 
 # Challenge Description
