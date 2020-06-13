@@ -246,4 +246,4 @@ The recovered key was `97ca6080f575e646e557f755bf15685e` and the resulting decry
 
 ## Full Attack
 
-For more details on how these key bytes were recovered and the full implementation you can look at the provided Python [notebook](./leaky-crypto.ipynb). You should be able to use a GITHub preview in the previous link, or run this in [Google CoLab](https://colab.google.com) if you would like to see this work in real life without installing Jupyter.
+For more details on how these key bytes were recovered and the full implementation you can look at the provided Python [notebook](./leaky-crypto.ipynb). You should be able to use a GITHub preview in the previous link, or run this in [Google CoLab](https://colab.research.google.com) if you would like to see this work in real life without installing Jupyter.
