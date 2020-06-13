@@ -33,7 +33,13 @@ We examine the WAV file and observe there are two channels.
 
 ![Challenge WAV file Viewed in Audacity](images/challenge-audacity.png)
 
-Assuming it's a digital modulation scheme, we ascertain the approximate symbol rate and, slice the two channels of bits, and post them as binary ([c1bits.txt](c1bits.txt) and [c2bits.txt](c2bits.txt)) and hex ([c1bits.hex](c1bits.hex) and [c2bits.hex](c2bits.hex)) to the chat for everybody to pick through.
+We wrote a GNURadio flowgraph to modulate the signal so that it could be loaded into inspectrum.
+
+![GNURadio modulator flowgraph](images/modulator-flowgraph.png)
+
+Then we used inspectrum to extract the bits from each channel and post them as binary ([c1bits.txt](c1bits.txt) and [c2bits.txt](c2bits.txt)) and hex ([c1bits.hex](c1bits.hex) and [c2bits.hex](c2bits.hex)) to the chat for everybody to pick through.
+
+![inspectrum bit extraction](images/inspectrum-bits.jpg)
 
 A repeating pattern is identified in both of the channels (period=440 bits), but no plaintext. We try interleaving and XORing the channels, to no avail. Then we notice that the two channels repeat the same data but with a considerable offset. There's also a periodic inversion in the data pattern. We entertain the notion of this being a differential encoding, like [DQPSK](https://en.wikipedia.org/wiki/Phase-shift_keying#Quadrature_phase-shift_keying_(QPSK)). But then, there are characteristics that seem to preclude differential encoding.
 
