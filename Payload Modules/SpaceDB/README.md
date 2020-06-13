@@ -87,7 +87,7 @@ Upon connection we immediately noticed a few things:
 4. Position is at GROUNDPOINT
 5. And of course - we needed to connect to the telemetry database at ```3.19.141.137:17501/tel/graphiql```
 
-We connected to `3.19.141.137:17501/tel/graphiql` using the browser and got a query/response interface for GraphiQL...
+We connected to `http://3.19.141.137:17501/tel/graphiql` using the browser and got a query/response interface for GraphiQL...
 
 OSINT time...\
 The team started searching on [kubOS](https://docs.kubos.com/)' telemetry operations: [https://docs.kubos.com/1.21.0/tutorials/querying-telemetry.html](https://docs.kubos.com/1.21.0/tutorials/querying-telemetry.html)
@@ -111,7 +111,7 @@ query {
 
 
 
-We learned how to query the system and given that our initial target was VIDIODE - we issued the following query to directly get the VIDIODE parameter value:
+We learned how to query the system using the Kubos manual and given that our initial target was VIDIODE - we issued the following query to directly get the VIDIODE parameter value:
 
 ![Vidiode query](images/pl_spdb_direct_vidiode_query.PNG)
 
@@ -211,7 +211,7 @@ And on the console we noticed that a new service caller `Scheduler service` came
 
 ![Scheduler Init](images/pl_spdb_scheduler_initiation.PNG)
 
-We went to `3.21.75.121:14733/sch/graphiql` on our browsers...
+We went to `http://3.21.75.121:14733/sch/graphiql` on our browsers...
 
 
 Scheduling mode proved to be very moody - it kept shutting down and we had to go back to the telemetry database and re-enable the scheduling service. Trying too many times caused a `Battery critical` condition resulting in a system shutdown.
