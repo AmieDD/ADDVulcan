@@ -1,9 +1,56 @@
 # Track-a-sat
 
+## Ground Segment
 
+*44 points, 107 solves*
+
+Active ADDVulcan players:
+
+- miek
+
+# Challenge Description
+
+You're in charge of controlling our hobbiest antenna. The antenna is controlled by two servos, one for azimuth and the other for elevation. Included is an example file from a previous control pattern. Track the satellite requested so we can see what it is broadcasting
+
+### Ticket
+
+Present this ticket when connecting to the challenge:
+
+```
+ticket{papa81666echo:___a bunch of unguessable stuff___}
+```
+
+Don't share your ticket with other teams.
+
+### Connecting
+
+Connect to the challenge on
+```
+trackthesat.satellitesabove.me:5031
+```
+
+Using netcat, you might run
+```
+nc trackthesat.satellitesabove.me 5031
+```
+
+### Files
+
+You'll need these files to solve the challenge.
+
+[Download Files](https://static.2020.hackasat.com/b05745a1feed6b27afbad7454e9d328d4d00405a/examples.tar.gz)
+
+### Solving
+
+Your team's flag for this challenge will look something like ``` flag{papa81666echo:___a bunch of unguessable stuff___} ``` .
+
+
+### From README.txt
+```
 We have obtained access to the control system for a groundstation's satellite antenna. The azimuth and elevation motors are controlled by PWM signals from the controller. Given a satellite and the groundstation's location and time, we need to control the antenna to track the satellite. The motors accept duty cycles between 2457 and 7372, from 0 to 180 degrees. 
 
 Some example control input logs were found on the system. They may be helpful to you to try to reproduce before you take control of the antenna. They seem to be in the format you need to provide. We also obtained a copy of the TLEs in use at this groundstation.
+```
 
 ## Solution
 
