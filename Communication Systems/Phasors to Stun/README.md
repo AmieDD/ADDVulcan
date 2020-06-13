@@ -14,7 +14,7 @@ Active ADDVulcan players:
 - supersat
 - worm
 
-## Challenge Description
+# Challenge Description
 
 Demodulate the data from an SDR capture and you will find a flag. It is a wav file, but that doesn't mean its audio data.
 
