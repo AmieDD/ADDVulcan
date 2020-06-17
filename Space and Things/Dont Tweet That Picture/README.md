@@ -42,7 +42,7 @@ You'll need these files to solve the challenge.
 
 ![5b1b988d97d68966b015d6abf1945dc3.png](:/810b1176c8ef40b794d6cc5b6db1b7a8)
 
-![82d4eba572832f2a46fb99c483b5f5e9.png](:/9ae75e37dd9c4d22bcd866ad11532ed7)
+![](https://github.com/AmieDD/ADDVulcan/blob/master/Space%20and%20Things/Dont%20Tweet%20That%20Picture/Images/EpockYear_JulianDayFraction.png)
 Epock Year and Julian Day Fraction
 
 ![e1f687d783c8cb0e809ea406b38627be.png](:/7d282009d2bb4462b5462ddbd0fb2499)
