@@ -27,7 +27,7 @@ Note: When you're done planning, go to low power mode to wait for the next trans
 Present this ticket when connecting to the challenge:
 
 ```
-ticket{xray61861echo:GHUXJ498f89DPs9ZZR5ZT2LX3JR9Gw9D61ngX-jIfZIW4eDZ2HM94F230DSyX7Hjhw}
+ticket{xray61861echo:XXXXXXXXXXXXXXXXXXXXXXXX-XXXXXXXXXXXXXXXX}
 ```
 
 Don't share your ticket with other teams.
@@ -57,7 +57,7 @@ We connect to the server and provide our ticket, started seeing the below output
 ```
 root# nc spacedb.satellitesabove.me 5062
 Ticket please:
-ticket{xray61861echo:GHUXJ498f89DPs9ZZR5ZT2LX3JR9Gw9D61ngX-jIfZIW4eDZ2HM94F230DSyX7Hjhw}
+ticket{xray61861echo:XXXXXXXXXXXXXXXXXXXXXXXX-XXXXXXXXXXXXXXXX}
 ### Welcome to kubOS ###
 Initializing System ...
 
