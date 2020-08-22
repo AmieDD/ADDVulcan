@@ -2,6 +2,7 @@
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
 [![All Contributors](https://img.shields.io/badge/all_contributors-35-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
+![](/Art%20Work/ADDVulcan_Logo.png)
 [**HackaSat Challenges**](https://www.hackasat.com/)
 
 ### [Space Cadets](https://github.com/AmieDD/ADDVulcan/tree/master/Space%20Cadets)
