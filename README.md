@@ -71,7 +71,7 @@
 - [Astrokit](https://github.com/typpo/astrokit)
 
 ## ADDVulcan Virtual Machine for Satellite Hacking
-Using [Virtual Box](https://www.virtualbox.org/wiki/Downloads) you can download our VM set up with helpful tools to get you started. 
+Using [Virtual Box](https://www.virtualbox.org/wiki/Downloads) you can download our VM set up with helpful tools to get you started. We recommend you also install the [Virtual Box extension pack](https://download.virtualbox.org/virtualbox/6.1.12/Oracle_VM_VirtualBox_Extension_Pack-6.1.12.vbox-extpack)
 
 ![](/Art%20Work/ADDVulcan-HAS-VM.png)
 
